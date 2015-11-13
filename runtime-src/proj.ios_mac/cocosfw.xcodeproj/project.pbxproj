@@ -47,8 +47,6 @@
 		509D4AEB17EBB82600697056 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509D4AEA17EBB82600697056 /* IOKit.framework */; };
 		62F12BE11BF25205007B3670 /* project.json in Resources */ = {isa = PBXBuildFile; fileRef = 62F12BE01BF25205007B3670 /* project.json */; };
 		62F12BE31BF2523A007B3670 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 62F12BE21BF2523A007B3670 /* main.js */; };
-		62F12BE51BF25265007B3670 /* src in Resources */ = {isa = PBXBuildFile; fileRef = 62F12BE41BF25265007B3670 /* src */; };
-		62F12BE71BF25286007B3670 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 62F12BE61BF25286007B3670 /* res */; };
 		A92275421517C094001B78AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275411517C094001B78AA /* QuartzCore.framework */; };
 		A92275441517C094001B78AA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275431517C094001B78AA /* OpenGLES.framework */; };
 		A92275461517C094001B78AA /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275451517C094001B78AA /* OpenAL.framework */; };
@@ -131,6 +129,13 @@
 			remoteGlobalIDString = A03F31E81781479B006731B9;
 			remoteInfo = "jsbindings Mac";
 		};
+		D872AFA01BF57FBD0087CFFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D872AF9C1BF57FBB0087CFFE /* libguang.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D872AF951BF57FBB0087CFFE;
+			remoteInfo = libguang;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -172,8 +177,6 @@
 		509D4AEA17EBB82600697056 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		62F12BE01BF25205007B3670 /* project.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = project.json; path = ../../../cocosfw/project.json; sourceTree = "<group>"; };
 		62F12BE21BF2523A007B3670 /* main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = main.js; path = ../../../cocosfw/main.js; sourceTree = "<group>"; };
-		62F12BE41BF25265007B3670 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../../../cocosfw/src; sourceTree = "<group>"; };
-		62F12BE61BF25286007B3670 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res; path = ../../../cocosfw/res; sourceTree = "<group>"; };
 		A922753D1517C094001B78AA /* cocosfw-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cocosfw-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92275411517C094001B78AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A92275431517C094001B78AA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -196,6 +199,7 @@
 		D4545215156E28EF00887EB5 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		D4545216156E28EF00887EB5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D6B061231803AB9F0077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		D872AF9C1BF57FBB0087CFFE /* libguang.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libguang.xcodeproj; path = ../../libguang/libguang.xcodeproj; sourceTree = "<group>"; };
 		ED545A811B68A21500C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A831B68A21C00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -304,8 +308,7 @@
 		A92275321517C094001B78AA = {
 			isa = PBXGroup;
 			children = (
-				62F12BE61BF25286007B3670 /* res */,
-				62F12BE41BF25265007B3670 /* src */,
+				D872AF9C1BF57FBB0087CFFE /* libguang.xcodeproj */,
 				62F12BE21BF2523A007B3670 /* main.js */,
 				62F12BE01BF25205007B3670 /* project.json */,
 				C037820118BF76AF00FE4F13 /* cocos2d_js_bindings.xcodeproj */,
@@ -395,6 +398,14 @@
 			path = ../Classes;
 			sourceTree = "<group>";
 		};
+		D872AF9D1BF57FBB0087CFFE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D872AFA11BF57FBD0087CFFE /* liblibguang.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -463,6 +474,10 @@
 					ProductGroup = 1AC6FB35180E9ACB004C840B /* Products */;
 					ProjectRef = 1AC6FB34180E9ACB004C840B /* cocos2d_libs.xcodeproj */;
 				},
+				{
+					ProductGroup = D872AF9D1BF57FBB0087CFFE /* Products */;
+					ProjectRef = D872AF9C1BF57FBB0087CFFE /* libguang.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -501,6 +516,13 @@
 			remoteRef = C037820818BF76AF00FE4F13 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		D872AFA11BF57FBD0087CFFE /* liblibguang.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liblibguang.a;
+			remoteRef = D872AFA01BF57FBD0087CFFE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -508,8 +530,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62F12BE71BF25286007B3670 /* res in Resources */,
-				62F12BE51BF25265007B3670 /* src in Resources */,
 				62F12BE31BF2523A007B3670 /* main.js in Resources */,
 				62F12BE11BF25205007B3670 /* project.json in Resources */,
 				BAF426FC19484B3E002B22EF /* script in Resources */,

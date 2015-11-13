@@ -7,71 +7,84 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62EE10741BF37C5600EC1EF5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62EE10731BF37C5600EC1EF5 /* main.cpp */; };
+		D872AFA41BF57FD80087CFFE /* guang.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D872AFA21BF57FD80087CFFE /* guang.cpp */; };
+		D872AFA51BF57FD80087CFFE /* guang.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA31BF57FD80087CFFE /* guang.h */; };
+		D872AFA71BF580070087CFFE /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D872AFA61BF580070087CFFE /* libcocos2d Mac.a */; };
+		D872AFAA1BF582EA0087CFFE /* GHtttpService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D872AFA81BF582EA0087CFFE /* GHtttpService.cpp */; };
+		D872AFAB1BF582EA0087CFFE /* GHtttpService.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA91BF582EA0087CFFE /* GHtttpService.h */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		62EE106E1BF37C5600EC1EF5 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		62EE10701BF37C5600EC1EF5 /* libguang */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = libguang; sourceTree = BUILT_PRODUCTS_DIR; };
-		62EE10731BF37C5600EC1EF5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D872AF951BF57FBB0087CFFE /* liblibguang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibguang.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D872AFA21BF57FD80087CFFE /* guang.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guang.cpp; sourceTree = "<group>"; };
+		D872AFA31BF57FD80087CFFE /* guang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guang.h; sourceTree = "<group>"; };
+		D872AFA61BF580070087CFFE /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "../../../../Library/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug/libcocos2d Mac.a"; sourceTree = "<group>"; };
+		D872AFA81BF582EA0087CFFE /* GHtttpService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHtttpService.cpp; path = net/GHtttpService.cpp; sourceTree = "<group>"; };
+		D872AFA91BF582EA0087CFFE /* GHtttpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHtttpService.h; path = net/GHtttpService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		62EE106D1BF37C5600EC1EF5 /* Frameworks */ = {
+		D872AF921BF57FBB0087CFFE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D872AFA71BF580070087CFFE /* libcocos2d Mac.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		62EE10671BF37C5600EC1EF5 = {
+		D872AF8C1BF57FBB0087CFFE = {
 			isa = PBXGroup;
 			children = (
-				62EE10721BF37C5600EC1EF5 /* libguang */,
-				62EE10711BF37C5600EC1EF5 /* Products */,
+				D872AFAC1BF582F00087CFFE /* net */,
+				D872AFA61BF580070087CFFE /* libcocos2d Mac.a */,
+				D872AFA21BF57FD80087CFFE /* guang.cpp */,
+				D872AFA31BF57FD80087CFFE /* guang.h */,
+				D872AF961BF57FBB0087CFFE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		62EE10711BF37C5600EC1EF5 /* Products */ = {
+		D872AF961BF57FBB0087CFFE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				62EE10701BF37C5600EC1EF5 /* libguang */,
+				D872AF951BF57FBB0087CFFE /* liblibguang.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		62EE10721BF37C5600EC1EF5 /* libguang */ = {
+		D872AFAC1BF582F00087CFFE /* net */ = {
 			isa = PBXGroup;
 			children = (
-				62EE10731BF37C5600EC1EF5 /* main.cpp */,
+				D872AFA81BF582EA0087CFFE /* GHtttpService.cpp */,
+				D872AFA91BF582EA0087CFFE /* GHtttpService.h */,
 			);
-			path = libguang;
+			name = net;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		D872AF931BF57FBB0087CFFE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D872AFA51BF57FD80087CFFE /* guang.h in Headers */,
+				D872AFAB1BF582EA0087CFFE /* GHtttpService.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		62EE106F1BF37C5600EC1EF5 /* libguang */ = {
+		D872AF941BF57FBB0087CFFE /* libguang */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 62EE10771BF37C5600EC1EF5 /* Build configuration list for PBXNativeTarget "libguang" */;
+			buildConfigurationList = D872AF991BF57FBB0087CFFE /* Build configuration list for PBXNativeTarget "libguang" */;
 			buildPhases = (
-				62EE106C1BF37C5600EC1EF5 /* Sources */,
-				62EE106D1BF37C5600EC1EF5 /* Frameworks */,
-				62EE106E1BF37C5600EC1EF5 /* CopyFiles */,
+				D872AF911BF57FBB0087CFFE /* Sources */,
+				D872AF921BF57FBB0087CFFE /* Frameworks */,
+				D872AF931BF57FBB0087CFFE /* Headers */,
 			);
 			buildRules = (
 			);
@@ -79,53 +92,54 @@
 			);
 			name = libguang;
 			productName = libguang;
-			productReference = 62EE10701BF37C5600EC1EF5 /* libguang */;
-			productType = "com.apple.product-type.tool";
+			productReference = D872AF951BF57FBB0087CFFE /* liblibguang.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		62EE10681BF37C5600EC1EF5 /* Project object */ = {
+		D872AF8D1BF57FBB0087CFFE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
-				ORGANIZATIONNAME = guang;
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = xindong;
 				TargetAttributes = {
-					62EE106F1BF37C5600EC1EF5 = {
-						CreatedOnToolsVersion = 7.1;
+					D872AF941BF57FBB0087CFFE = {
+						CreatedOnToolsVersion = 6.3.2;
 					};
 				};
 			};
-			buildConfigurationList = 62EE106B1BF37C5600EC1EF5 /* Build configuration list for PBXProject "libguang" */;
+			buildConfigurationList = D872AF901BF57FBB0087CFFE /* Build configuration list for PBXProject "libguang" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 62EE10671BF37C5600EC1EF5;
-			productRefGroup = 62EE10711BF37C5600EC1EF5 /* Products */;
+			mainGroup = D872AF8C1BF57FBB0087CFFE;
+			productRefGroup = D872AF961BF57FBB0087CFFE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				62EE106F1BF37C5600EC1EF5 /* libguang */,
+				D872AF941BF57FBB0087CFFE /* libguang */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		62EE106C1BF37C5600EC1EF5 /* Sources */ = {
+		D872AF911BF57FBB0087CFFE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62EE10741BF37C5600EC1EF5 /* main.cpp in Sources */,
+				D872AFAA1BF582EA0087CFFE /* GHtttpService.cpp in Sources */,
+				D872AFA41BF57FD80087CFFE /* guang.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		62EE10751BF37C5600EC1EF5 /* Debug */ = {
+		D872AF971BF57FBB0087CFFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -142,11 +156,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -155,20 +167,21 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		62EE10761BF37C5600EC1EF5 /* Release */ = {
+		D872AF981BF57FBB0087CFFE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -185,7 +198,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -198,47 +210,61 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		62EE10781BF37C5600EC1EF5 /* Debug */ = {
+		D872AF9A1BF57FBB0087CFFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/external/glfw3/include/mac $(SRCROOT)/../cocos2d-x/external/curl/include/mac";
 			};
 			name = Debug;
 		};
-		62EE10791BF37C5600EC1EF5 /* Release */ = {
+		D872AF9B1BF57FBB0087CFFE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/external/glfw3/include/mac $(SRCROOT)/../cocos2d-x/external/curl/include/mac";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		62EE106B1BF37C5600EC1EF5 /* Build configuration list for PBXProject "libguang" */ = {
+		D872AF901BF57FBB0087CFFE /* Build configuration list for PBXProject "libguang" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				62EE10751BF37C5600EC1EF5 /* Debug */,
-				62EE10761BF37C5600EC1EF5 /* Release */,
+				D872AF971BF57FBB0087CFFE /* Debug */,
+				D872AF981BF57FBB0087CFFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		62EE10771BF37C5600EC1EF5 /* Build configuration list for PBXNativeTarget "libguang" */ = {
+		D872AF991BF57FBB0087CFFE /* Build configuration list for PBXNativeTarget "libguang" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				62EE10781BF37C5600EC1EF5 /* Debug */,
-				62EE10791BF37C5600EC1EF5 /* Release */,
+				D872AF9A1BF57FBB0087CFFE /* Debug */,
+				D872AF9B1BF57FBB0087CFFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 62EE10681BF37C5600EC1EF5 /* Project object */;
+	rootObject = D872AF8D1BF57FBB0087CFFE /* Project object */;
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D12A9BA8-A0A1-4039-B03A-ED2A3F938739</string>
+	<key>IDESourceControlProjectName</key>
+	<string>cocosfw</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CA980B971C98DB06725D84B52C4B1B021C6A2C72</key>
+		<string>https://github.com/guang84299/cocosfw.git</string>
+		<key>ED1EB3CEE23E30B9DE6540F740C063632BEBD361</key>
+		<string>https://github.com/guang84299/cocosfw-cpp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>runtime-src/proj.ios_mac/cocosfw.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CA980B971C98DB06725D84B52C4B1B021C6A2C72</key>
+		<string>../../../../../cocosfw</string>
+		<key>ED1EB3CEE23E30B9DE6540F740C063632BEBD361</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/guang84299/cocosfw-cpp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>ED1EB3CEE23E30B9DE6540F740C063632BEBD361</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CA980B971C98DB06725D84B52C4B1B021C6A2C72</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cocosfw</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>ED1EB3CEE23E30B9DE6540F740C063632BEBD361</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cocosfw-cpp</string>
+		</dict>
+	</array>
+</dict>
+</plist>
