@@ -11,6 +11,6 @@
 
 #include <stdio.h>
 
-#include "cocos2d.h"
+#include "net/GHtttpService.h"
 
 #endif /* defined(__libguang__guang__) */

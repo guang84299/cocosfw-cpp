@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D872AF951BF57FBB0087CFFE /* liblibguang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibguang.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D872AF951BF57FBB0087CFFE /* libguang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libguang.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D872AFA21BF57FD80087CFFE /* guang.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guang.cpp; sourceTree = "<group>"; };
 		D872AFA31BF57FD80087CFFE /* guang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guang.h; sourceTree = "<group>"; };
 		D872AFA61BF580070087CFFE /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "../../../../Library/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug/libcocos2d Mac.a"; sourceTree = "<group>"; };
@@ -49,7 +49,7 @@
 		D872AF961BF57FBB0087CFFE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D872AF951BF57FBB0087CFFE /* liblibguang.a */,
+				D872AF951BF57FBB0087CFFE /* libguang.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,7 +92,7 @@
 			);
 			name = libguang;
 			productName = libguang;
-			productReference = D872AF951BF57FBB0087CFFE /* liblibguang.a */;
+			productReference = D872AF951BF57FBB0087CFFE /* libguang.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -220,7 +220,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_PREFIX = "";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug",
@@ -234,7 +234,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_PREFIX = "";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug",
@@ -263,6 +263,7 @@
 				D872AF9B1BF57FBB0087CFFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

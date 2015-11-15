@@ -43,6 +43,9 @@
 #include "platform/ios/JavaScriptObjCBridge.h"
 #endif
 
+#include "net/GHtttpService.h"
+#include <iostream>
+
 USING_NS_CC;
 using namespace CocosDenshion;
 
@@ -53,6 +56,7 @@ AppDelegate::AppDelegate()
 AppDelegate::~AppDelegate()
 {
     ScriptEngineManager::destroyInstance();
+     GHtttpService::getInstance()->destroy();
 }
 
 void AppDelegate::initGLContextAttrs()
@@ -158,7 +162,24 @@ bool AppDelegate::applicationDidFinishLaunching()
     ScriptEngineProtocol *engine = ScriptingCore::getInstance();
     ScriptEngineManager::getInstance()->setScriptEngine(engine);
     ScriptingCore::getInstance()->runScript("main.js");
+    
+    GHtttpService* http = GHtttpService::getInstance();
+    
+    GHttpTask* task3 = new GHttpTask();
+    task3->setUrl("http://localhost:63342/cocosfw/res/adt.zip");
+    task3->setTimeOut(10);
 
+    http->request(task3);
+    
+    FileUtils::getInstance()->addSearchPath("/Users/guang/Documents/work/cocos-proj/cocosfw-cpp/res");
+    std::string path = FileUtils::getInstance()->getSearchPaths()[1];
+    
+    Data retData;
+    retData.copy((const unsigned char*)(task3->getData()), task3->getDataLen());
+    FileUtils::getInstance()->writeDataToFile(retData, path+"adt.zip");
+
+
+    CC_SAFE_DELETE(task3);
     return true;
 }
 
