@@ -75,7 +75,6 @@ void GHtttpService::request(GHttpTask* task)
     mutex.lock();
     this->removeHandle(handle);
     this->removeTask(task);
-    CC_SAFE_DELETE(task);
     mutex.unlock();
 }
 
@@ -130,9 +129,9 @@ size_t GHtttpService::write_data(void *buffer, size_t size, size_t nmemb, void *
         task->writeFileData((unsigned char *)(buffer), len);
     }
     task->setSpeed(len);
-    mutex.lock();
+   // mutex.lock();
     std::cout << (int)(task->getProgress()) << ":" + task->getPath() << std::endl;
-    mutex.unlock();
+   // mutex.unlock();
     return len;
 }
 
@@ -186,7 +185,18 @@ data(nullptr),
 status(false),
 file(nullptr)
 {
+}
+
+GHttpTask::~GHttpTask()
+{
+    CCLOG("----~GHttpTask-----" + this->path);
+}
+GHttpTask* GHttpTask::create()
+{
+    GHttpTask *task = new GHttpTask();
+    task->autorelease();
     
+    return task;
 }
 
 void GHttpTask::setUrl(std::string url)

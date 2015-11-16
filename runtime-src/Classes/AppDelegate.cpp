@@ -165,31 +165,43 @@ bool AppDelegate::applicationDidFinishLaunching()
     
     GHtttpService* http = GHtttpService::getInstance();
     
-    GHttpTask* task5 = new GHttpTask();
-    task5->setUrl("http://localhost:63342/xxd/OpenGL.pdf");
+    std::string url1 = "http://localhost:63342/cocosfw/res/Hello1.png";
+    std::string url2 = "http://localhost:63342/cocosfw/res/Hello2.png";
+    std::string url3 = "http://localhost:63342/cocosfw/res/Hello3.png";
+    std::string url4 = "http://localhost:63342/cocosfw/res/Hello4.png";
+    std::string url5 = "http://localhost:63342/cocosfw/res/Hello5.png";
+    std::string tourl = "/Users/guang/Documents/work/cocos-proj/cocosfw-cpp/";
+    
+    GHttpTask* task5 = GHttpTask::create();
+    task5->retain();
+    task5->setUrl(url5);
     task5->setType(GHTTPTYPE::DOWNLOAD);
-    task5->setPath("/Users/xindong/Documents/my/cocosfw-cpp/OpenGL5.pdf");
+    task5->setPath(tourl + "Hello5.png");
     
-    GHttpTask* task4 = new GHttpTask();
-    task4->setUrl("http://localhost:63342/xxd/OpenGL.pdf");
+    GHttpTask* task4 = GHttpTask::create();
+    task4->retain();
+    task4->setUrl(url4);
     task4->setType(GHTTPTYPE::DOWNLOAD);
-    task4->setPath("/Users/xindong/Documents/my/cocosfw-cpp/OpenGL4.pdf");
+    task4->setPath(tourl + "Hello4.png");
     
     
-    GHttpTask* task3 = new GHttpTask();
-    task3->setUrl("http://localhost:63342/xxd/OpenGL.pdf");
+    GHttpTask* task3 = GHttpTask::create();
+    task3->retain();
+    task3->setUrl(url3);
     task3->setType(GHTTPTYPE::DOWNLOAD);
-    task3->setPath("/Users/xindong/Documents/my/cocosfw-cpp/OpenGL3.pdf");
+    task3->setPath(tourl + "Hello3.png");
     
-    GHttpTask* task2 = new GHttpTask();
-    task2->setUrl("http://localhost:63342/xxd/OpenGL.pdf");
+    GHttpTask* task2 = GHttpTask::create();
+    task2->retain();
+    task2->setUrl(url2);
     task2->setType(GHTTPTYPE::DOWNLOAD);
-    task2->setPath("/Users/xindong/Documents/my/cocosfw-cpp/OpenGL2.pdf");
+    task2->setPath(tourl + "Hello2.png");
     
-    GHttpTask* task = new GHttpTask();
-    task->setUrl("http://localhost:63342/xxd/OpenGL.pdf");
+    GHttpTask* task = GHttpTask::create();
+    task->retain();
+    task->setUrl(url1);
     task->setType(GHTTPTYPE::DOWNLOAD);
-    task->setPath("/Users/xindong/Documents/my/cocosfw-cpp/OpenGL1.pdf");
+    task->setPath(tourl + "Hello1.png");
 
     http->asyncDownload(task5);
     http->asyncDownload(task4);

@@ -49,10 +49,12 @@ private:
 
 enum GHTTPTYPE {REQUEST,DOWNLOAD};
 
-class GHttpTask
+class GHttpTask : public cocos2d::Ref
 {
 public:
     GHttpTask();
+    ~GHttpTask();
+    static GHttpTask* create();
     
     void setUrl(std::string url);
     std::string getUrl();
@@ -85,6 +87,7 @@ public:
     //网络请求状态 true 请求成功
     void setStatus(bool status);
     bool getStatus();
+    
 private:
     std::string url;
     GHTTPTYPE type;
