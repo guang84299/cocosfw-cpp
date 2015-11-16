@@ -28,7 +28,10 @@ protected:
     ~GHtttpService();
     
 public:
+    //http 请求
     void request(GHttpTask* task);
+    //单个文件下载
+    void download(GHttpTask* task);
     
 private:
     CURL* getHandle(GHttpTask* task);
@@ -69,17 +72,22 @@ public:
     //秒
     void setTimeOut(int time);
     int getTimeOut();
-    
+    //下载文件保存路径
+    void setPath(std::string path);
+    std::string getPath();
+    //网络请求状态 true 请求成功
+    void setStatus(bool status);
+    bool getStatus();
 private:
     std::string url;
     GHTTPTYPE type;
     float progress;
     float speed;
     int timeout;
-    
     char* data;
     unsigned long len;
-    
+    std::string path;
+    bool status;
 };
 
 #endif /* defined(__libguang__GHtttpService__) */

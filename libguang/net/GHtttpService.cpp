@@ -52,10 +52,12 @@ void GHtttpService::request(GHttpTask* task)
     this->handle_list.push_back(handle);
     this->task_list.push_back(task);
     auto success = curl_easy_perform(handle);
-    
+    long retcode = 0;
+    curl_easy_getinfo(handle, CURLINFO_RESPONSE_CODE , &retcode);
 
-    if(success == CURLE_OK)
+    if(success == CURLE_OK && retcode == 200)
     {
+        task->setStatus(true);
         std::cout << "request ok!!!!" << std::endl;
     }
     else
@@ -64,6 +66,11 @@ void GHtttpService::request(GHttpTask* task)
     }
     this->removeHandle(handle);
     this->removeTask(task);
+}
+
+void GHtttpService::download(GHttpTask* task)
+{
+    this->request(task);
 }
 
 CURL* GHtttpService::getHandle(GHttpTask* task)
@@ -88,17 +95,20 @@ size_t GHtttpService::write_data(void *buffer, size_t size, size_t nmemb, void *
     char *s1 = task->getData();
     char *s2 = (char *)(buffer);
     
-    char *result = (char *)malloc(task->getDataLen() + nmemb);
+    char *result = (char *)malloc(task->getDataLen() + size * nmemb);
     if(s1)
-     memcpy(result, s1, task->getDataLen());
-    memcpy(result + task->getDataLen(), s2, nmemb);
+    {
+        memcpy(result, s1, task->getDataLen());
+    }
+    memcpy(result + task->getDataLen(), s2,size * nmemb);
     
     task->setData(result);
-    task->setDataLen(task->getDataLen() + nmemb);
+    task->setDataLen(task->getDataLen() + size * nmemb);
+    task->setSpeed(size * nmemb);
     
     std::cout << task->getProgress() << std::endl;
     
-    return nmemb;
+    return size * nmemb;
 }
 
 int GHtttpService::progress_callback(void *clientp, double dltotal, double dlnow, double ultotal, double ulnow)
@@ -147,7 +157,8 @@ progress(0),
 speed(0),
 timeout(5),
 len(0),
-data(nullptr)
+data(nullptr),
+status(false)
 {
     
 }
@@ -172,7 +183,14 @@ GHTTPTYPE GHttpTask::getType()
 
 void GHttpTask::setData(char *data)
 {
+    if(this->data)
+        free(this->data);
     this->data = data;
+    
+    if(this->type == GHTTPTYPE::DOWNLOAD)
+    {
+        
+    }
 }
 char* GHttpTask::getData()
 {
@@ -215,3 +233,20 @@ int GHttpTask::getTimeOut()
     return this->timeout;
 }
 
+void GHttpTask::setPath(std::string path)
+{
+    this->path = path;
+}
+std::string GHttpTask::getPath()
+{
+    return this->path;
+}
+
+void GHttpTask::setStatus(bool status)
+{
+    this->status = status;
+}
+bool GHttpTask::getStatus()
+{
+    return this->status;
+}
