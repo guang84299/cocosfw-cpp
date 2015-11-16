@@ -165,21 +165,48 @@ bool AppDelegate::applicationDidFinishLaunching()
     
     GHtttpService* http = GHtttpService::getInstance();
     
+    GHttpTask* task5 = new GHttpTask();
+    task5->setUrl("http://localhost:63342/xxd/OpenGL.pdf");
+    task5->setType(GHTTPTYPE::DOWNLOAD);
+    task5->setPath("/Users/xindong/Documents/my/cocosfw-cpp/OpenGL5.pdf");
+    
+    GHttpTask* task4 = new GHttpTask();
+    task4->setUrl("http://localhost:63342/xxd/OpenGL.pdf");
+    task4->setType(GHTTPTYPE::DOWNLOAD);
+    task4->setPath("/Users/xindong/Documents/my/cocosfw-cpp/OpenGL4.pdf");
+    
+    
     GHttpTask* task3 = new GHttpTask();
-    task3->setUrl("http://localhost:63342/cocosfw/res/adt.zip");
-    task3->setTimeOut(10);
-
-    http->request(task3);
+    task3->setUrl("http://localhost:63342/xxd/OpenGL.pdf");
+    task3->setType(GHTTPTYPE::DOWNLOAD);
+    task3->setPath("/Users/xindong/Documents/my/cocosfw-cpp/OpenGL3.pdf");
     
-    FileUtils::getInstance()->addSearchPath("/Users/guang/Documents/work/cocos-proj/cocosfw-cpp/res");
-    std::string path = FileUtils::getInstance()->getSearchPaths()[1];
+    GHttpTask* task2 = new GHttpTask();
+    task2->setUrl("http://localhost:63342/xxd/OpenGL.pdf");
+    task2->setType(GHTTPTYPE::DOWNLOAD);
+    task2->setPath("/Users/xindong/Documents/my/cocosfw-cpp/OpenGL2.pdf");
     
-    Data retData;
-    retData.copy((const unsigned char*)(task3->getData()), task3->getDataLen());
-    FileUtils::getInstance()->writeDataToFile(retData, path+"adt.zip");
+    GHttpTask* task = new GHttpTask();
+    task->setUrl("http://localhost:63342/xxd/OpenGL.pdf");
+    task->setType(GHTTPTYPE::DOWNLOAD);
+    task->setPath("/Users/xindong/Documents/my/cocosfw-cpp/OpenGL1.pdf");
 
-
-    CC_SAFE_DELETE(task3);
+    http->asyncDownload(task5);
+    http->asyncDownload(task4);
+    http->asyncDownload(task3);
+    http->asyncDownload(task2);
+    http->asyncDownload(task);
+    
+    if(task3->getStatus())
+    {
+        CCLOG("%f    %f ",task3->getProgress(),task3->getSpeed());
+    }
+    if(task2->getStatus())
+    {
+        CCLOG("%f    %f ",task2->getProgress(),task2->getSpeed());
+    }
+    //CC_SAFE_DELETE(task3);
+   // CC_SAFE_DELETE(task2);
     return true;
 }
 

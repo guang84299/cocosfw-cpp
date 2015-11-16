@@ -32,6 +32,8 @@ public:
     void request(GHttpTask* task);
     //单个文件下载
     void download(GHttpTask* task);
+    //异步下载
+    void asyncDownload(GHttpTask* task);
     
 private:
     CURL* getHandle(GHttpTask* task);
@@ -75,6 +77,11 @@ public:
     //下载文件保存路径
     void setPath(std::string path);
     std::string getPath();
+    //文件
+    bool writeFileData(unsigned char* data,size_t size);
+    FILE * getFile();
+    void openFile();
+    void closeFile();
     //网络请求状态 true 请求成功
     void setStatus(bool status);
     bool getStatus();
@@ -88,6 +95,7 @@ private:
     unsigned long len;
     std::string path;
     bool status;
+    FILE *file;
 };
 
 #endif /* defined(__libguang__GHtttpService__) */

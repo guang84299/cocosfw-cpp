@@ -9,10 +9,12 @@
 #include "GHtttpService.h"
 #include "curl/curl.h"
 #include <iostream>
+#include <thread>
 
 USING_NS_CC;
 
 static GHtttpService* instance = nullptr;
+static std::mutex mutex;
 
 GHtttpService* GHtttpService::getInstance()
 {
@@ -49,8 +51,10 @@ GHtttpService::~GHtttpService()
 void GHtttpService::request(GHttpTask* task)
 {
     CURL* handle = this->getHandle(task);
+    mutex.lock();
     this->handle_list.push_back(handle);
     this->task_list.push_back(task);
+    mutex.unlock();
     auto success = curl_easy_perform(handle);
     long retcode = 0;
     curl_easy_getinfo(handle, CURLINFO_RESPONSE_CODE , &retcode);
@@ -64,13 +68,27 @@ void GHtttpService::request(GHttpTask* task)
     {
         std::cout << "failure!!!!" << std::endl;
     }
+    if(task->getType() == GHTTPTYPE::DOWNLOAD)
+    {
+        task->closeFile();
+    }
+    mutex.lock();
     this->removeHandle(handle);
     this->removeTask(task);
+    CC_SAFE_DELETE(task);
+    mutex.unlock();
 }
 
 void GHtttpService::download(GHttpTask* task)
 {
+    task->openFile();
     this->request(task);
+}
+
+void GHtttpService::asyncDownload(GHttpTask* task)
+{
+    std::thread t(&GHtttpService::download,this,task);
+    t.detach();
 }
 
 CURL* GHtttpService::getHandle(GHttpTask* task)
@@ -91,24 +109,31 @@ CURL* GHtttpService::getHandle(GHttpTask* task)
 size_t GHtttpService::write_data(void *buffer, size_t size, size_t nmemb, void *userp)
 {
     GHttpTask* task = static_cast<GHttpTask*>(userp);
-    
-    char *s1 = task->getData();
-    char *s2 = (char *)(buffer);
-    
-    char *result = (char *)malloc(task->getDataLen() + size * nmemb);
-    if(s1)
+    size_t len = size * nmemb;
+    if(task->getType() == GHTTPTYPE::REQUEST)
     {
-        memcpy(result, s1, task->getDataLen());
+        char *s1 = task->getData();
+        char *s2 = (char *)(buffer);
+        
+        char *result = (char *)malloc(task->getDataLen() + len);
+        if(s1)
+        {
+            memcpy(result, s1, task->getDataLen());
+        }
+        memcpy(result + task->getDataLen(), s2, len);
+        
+        task->setData(result);
+        task->setDataLen(task->getDataLen() + len);
     }
-    memcpy(result + task->getDataLen(), s2,size * nmemb);
-    
-    task->setData(result);
-    task->setDataLen(task->getDataLen() + size * nmemb);
-    task->setSpeed(size * nmemb);
-    
-    std::cout << task->getProgress() << std::endl;
-    
-    return size * nmemb;
+    else
+    {
+        task->writeFileData((unsigned char *)(buffer), len);
+    }
+    task->setSpeed(len);
+    mutex.lock();
+    std::cout << (int)(task->getProgress()) << ":" + task->getPath() << std::endl;
+    mutex.unlock();
+    return len;
 }
 
 int GHtttpService::progress_callback(void *clientp, double dltotal, double dlnow, double ultotal, double ulnow)
@@ -152,13 +177,14 @@ void GHtttpService::removeTask(GHttpTask* task)
 
 //------------------------------------------GHttpTask----------------------------------------------------
 GHttpTask::GHttpTask() :
-type(REQUEST),
+type(GHTTPTYPE::REQUEST),
 progress(0),
 speed(0),
 timeout(5),
 len(0),
 data(nullptr),
-status(false)
+status(false),
+file(nullptr)
 {
     
 }
@@ -186,14 +212,13 @@ void GHttpTask::setData(char *data)
     if(this->data)
         free(this->data);
     this->data = data;
-    
-    if(this->type == GHTTPTYPE::DOWNLOAD)
-    {
-        
-    }
 }
 char* GHttpTask::getData()
 {
+    if(this->type == GHTTPTYPE::DOWNLOAD)
+    {
+        return nullptr;
+    }
     return this->data;
 }
 
@@ -249,4 +274,47 @@ void GHttpTask::setStatus(bool status)
 bool GHttpTask::getStatus()
 {
     return this->status;
+}
+
+bool GHttpTask::writeFileData(unsigned char* data,size_t size)
+{
+    if(!this->file)
+    {
+         return false;
+    }
+    else
+    {
+        fwrite(data, size, 1, this->file);
+        return  true;
+    }
+    
+}
+FILE * GHttpTask::getFile()
+{
+    return this->file;
+}
+void GHttpTask::openFile()
+{
+    if(!this->file)
+    {
+        const char* mode = "wb";
+        
+        CCASSERT(!this->path.empty() && size != 0, "writeFileData failure!!!.");
+        
+        auto fileutils = FileUtils::getInstance();
+        do
+        {
+            // Read the file from hardware
+            this->file = fopen(fileutils->getSuitableFOpen(this->path).c_str(), mode);
+            CC_BREAK_IF(!this->file);
+        } while (0);
+        
+    }
+}
+void GHttpTask::closeFile()
+{
+    if(this->file)
+    {
+        fclose(this->file);
+    }
 }
