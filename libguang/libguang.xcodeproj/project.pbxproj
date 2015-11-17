@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62CB3DB01BFB517100CFD686 /* GGameControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62CB3DAE1BFB517100CFD686 /* GGameControl.cpp */; };
+		62CB3DB11BFB517100CFD686 /* GGameControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CB3DAF1BFB517100CFD686 /* GGameControl.h */; };
 		D872AFA41BF57FD80087CFFE /* guang.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D872AFA21BF57FD80087CFFE /* guang.cpp */; };
 		D872AFA51BF57FD80087CFFE /* guang.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA31BF57FD80087CFFE /* guang.h */; };
 		D872AFA71BF580070087CFFE /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D872AFA61BF580070087CFFE /* libcocos2d Mac.a */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		62CB3DAE1BFB517100CFD686 /* GGameControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GGameControl.cpp; path = core/GGameControl.cpp; sourceTree = "<group>"; };
+		62CB3DAF1BFB517100CFD686 /* GGameControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGameControl.h; path = core/GGameControl.h; sourceTree = "<group>"; };
 		D872AF951BF57FBB0087CFFE /* libguang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libguang.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D872AFA21BF57FD80087CFFE /* guang.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guang.cpp; sourceTree = "<group>"; };
 		D872AFA31BF57FD80087CFFE /* guang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guang.h; sourceTree = "<group>"; };
@@ -35,9 +39,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62CB3DAD1BFB50FB00CFD686 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				62CB3DAE1BFB517100CFD686 /* GGameControl.cpp */,
+				62CB3DAF1BFB517100CFD686 /* GGameControl.h */,
+			);
+			name = core;
+			sourceTree = "<group>";
+		};
 		D872AF8C1BF57FBB0087CFFE = {
 			isa = PBXGroup;
 			children = (
+				62CB3DAD1BFB50FB00CFD686 /* core */,
 				D872AFAC1BF582F00087CFFE /* net */,
 				D872AFA61BF580070087CFFE /* libcocos2d Mac.a */,
 				D872AFA21BF57FD80087CFFE /* guang.cpp */,
@@ -72,6 +86,7 @@
 			files = (
 				D872AFA51BF57FD80087CFFE /* guang.h in Headers */,
 				D872AFAB1BF582EA0087CFFE /* GHtttpService.h in Headers */,
+				62CB3DB11BFB517100CFD686 /* GGameControl.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D872AFAA1BF582EA0087CFFE /* GHtttpService.cpp in Sources */,
+				62CB3DB01BFB517100CFD686 /* GGameControl.cpp in Sources */,
 				D872AFA41BF57FD80087CFFE /* guang.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,7 +242,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/external/glfw3/include/mac $(SRCROOT)/../cocos2d-x/external/curl/include/mac";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/external/glfw3/include/mac $(SRCROOT)/../cocos2d-x/external/curl/include/mac";
 			};
 			name = Debug;
 		};
@@ -240,7 +256,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/external/glfw3/include/mac $(SRCROOT)/../cocos2d-x/external/curl/include/mac";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/external/glfw3/include/mac $(SRCROOT)/../cocos2d-x/external/curl/include/mac";
 			};
 			name = Release;
 		};

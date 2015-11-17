@@ -163,62 +163,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     ScriptEngineManager::getInstance()->setScriptEngine(engine);
     ScriptingCore::getInstance()->runScript("main.js");
     
-    GHtttpService* http = GHtttpService::getInstance();
     
-    std::string url1 = "http://localhost:63342/cocosfw/res/Hello1.png";
-    std::string url2 = "http://localhost:63342/cocosfw/res/Hello2.png";
-    std::string url3 = "http://localhost:63342/cocosfw/res/Hello3.png";
-    std::string url4 = "http://localhost:63342/cocosfw/res/Hello4.png";
-    std::string url5 = "http://localhost:63342/cocosfw/res/Hello5.png";
-    std::string tourl = "/Users/guang/Documents/work/cocos-proj/cocosfw-cpp/";
-    
-    GHttpTask* task5 = GHttpTask::create();
-    task5->retain();
-    task5->setUrl(url5);
-    task5->setType(GHTTPTYPE::DOWNLOAD);
-    task5->setPath(tourl + "Hello5.png");
-    
-    GHttpTask* task4 = GHttpTask::create();
-    task4->retain();
-    task4->setUrl(url4);
-    task4->setType(GHTTPTYPE::DOWNLOAD);
-    task4->setPath(tourl + "Hello4.png");
-    
-    
-    GHttpTask* task3 = GHttpTask::create();
-    task3->retain();
-    task3->setUrl(url3);
-    task3->setType(GHTTPTYPE::DOWNLOAD);
-    task3->setPath(tourl + "Hello3.png");
-    
-    GHttpTask* task2 = GHttpTask::create();
-    task2->retain();
-    task2->setUrl(url2);
-    task2->setType(GHTTPTYPE::DOWNLOAD);
-    task2->setPath(tourl + "Hello2.png");
-    
-    GHttpTask* task = GHttpTask::create();
-    task->retain();
-    task->setUrl(url1);
-    task->setType(GHTTPTYPE::DOWNLOAD);
-    task->setPath(tourl + "Hello1.png");
-
-    http->asyncDownload(task5);
-    http->asyncDownload(task4);
-    http->asyncDownload(task3);
-    http->asyncDownload(task2);
-    http->asyncDownload(task);
-    
-    if(task3->getStatus())
-    {
-        CCLOG("%f    %f ",task3->getProgress(),task3->getSpeed());
-    }
-    if(task2->getStatus())
-    {
-        CCLOG("%f    %f ",task2->getProgress(),task2->getSpeed());
-    }
-    //CC_SAFE_DELETE(task3);
-   // CC_SAFE_DELETE(task2);
     return true;
 }
 

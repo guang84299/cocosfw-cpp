@@ -74,6 +74,10 @@ void GHtttpService::request(GHttpTask* task)
     if(task->getType() == GHTTPTYPE::DOWNLOAD)
     {
         task->closeFile();
+        if(task->callback)
+        {
+            task->callback(task->getUrl(),task->getStatus());
+        }
         task->release();
     }
     this->removeHandle(handle);
@@ -329,4 +333,9 @@ void GHttpTask::closeFile()
     {
         fclose(this->file);
     }
+}
+
+void GHttpTask::setCallback(GHttpCallback callback)
+{
+    this->callback = callback;
 }

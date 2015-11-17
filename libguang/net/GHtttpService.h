@@ -50,6 +50,8 @@ enum GHTTPTYPE {REQUEST,DOWNLOAD};
 class GHttpTask : public cocos2d::Ref
 {
 public:
+    typedef std::function<void(std::string url,bool success)> GHttpCallback;
+public:
     GHttpTask();
     ~GHttpTask();
     static GHttpTask* create();
@@ -85,9 +87,13 @@ public:
     //网络请求状态 true 请求成功
     void setStatus(bool status);
     bool getStatus();
+    //设置回调
+    void setCallback(GHttpCallback callback);
 
     void write_data(void *buffer, size_t size, size_t nmemb);
     void progress_callback(double dltotal, double dlnow);
+    
+     GHttpCallback callback;
 private:
     std::string url;
     GHTTPTYPE type;
