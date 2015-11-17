@@ -51,11 +51,14 @@ GHtttpService::~GHtttpService()
 void GHtttpService::request(GHttpTask* task)
 {
     CURL* handle = this->getHandle(task);
+    
     mutex.lock();
     this->handle_list.push_back(handle);
-    this->task_list.push_back(task);
     mutex.unlock();
+    
     auto success = curl_easy_perform(handle);
+    
+    mutex.lock();
     long retcode = 0;
     curl_easy_getinfo(handle, CURLINFO_RESPONSE_CODE , &retcode);
 
@@ -71,10 +74,9 @@ void GHtttpService::request(GHttpTask* task)
     if(task->getType() == GHTTPTYPE::DOWNLOAD)
     {
         task->closeFile();
+        task->release();
     }
-    mutex.lock();
     this->removeHandle(handle);
-    this->removeTask(task);
     mutex.unlock();
 }
 
@@ -107,31 +109,12 @@ CURL* GHtttpService::getHandle(GHttpTask* task)
 
 size_t GHtttpService::write_data(void *buffer, size_t size, size_t nmemb, void *userp)
 {
-    GHttpTask* task = static_cast<GHttpTask*>(userp);
     size_t len = size * nmemb;
-    if(task->getType() == GHTTPTYPE::REQUEST)
-    {
-        char *s1 = task->getData();
-        char *s2 = (char *)(buffer);
-        
-        char *result = (char *)malloc(task->getDataLen() + len);
-        if(s1)
-        {
-            memcpy(result, s1, task->getDataLen());
-        }
-        memcpy(result + task->getDataLen(), s2, len);
-        
-        task->setData(result);
-        task->setDataLen(task->getDataLen() + len);
-    }
-    else
-    {
-        task->writeFileData((unsigned char *)(buffer), len);
-    }
-    task->setSpeed(len);
-   // mutex.lock();
-    std::cout << (int)(task->getProgress()) << ":" + task->getPath() << std::endl;
-   // mutex.unlock();
+    if(len == 0)
+        return 0;
+    GHttpTask* task = static_cast<GHttpTask*>(userp);
+    task->write_data(buffer, size, nmemb);
+    
     return len;
 }
 
@@ -140,7 +123,7 @@ int GHtttpService::progress_callback(void *clientp, double dltotal, double dlnow
     if(dltotal > 0)
     {
         GHttpTask* task = static_cast<GHttpTask*>(clientp);
-        task->setProgress(dlnow/dltotal*100);
+        task->progress_callback(dltotal, dlnow);
     }
     
     return 0;
@@ -160,26 +143,13 @@ void GHtttpService::removeHandle(CURL* handle)
     }
 }
 
-void GHtttpService::removeTask(GHttpTask* task)
-{
-    for(int i=0; i<this->task_list.size(); i++)
-    {
-        if(this->task_list[i] == task)
-        {
-            this->task_list.erase(this->task_list.begin() + i);
-            return;
-        }
-        
-    }
-
-}
 
 //------------------------------------------GHttpTask----------------------------------------------------
 GHttpTask::GHttpTask() :
 type(GHTTPTYPE::REQUEST),
 progress(0),
 speed(0),
-timeout(5),
+timeout(0),
 len(0),
 data(nullptr),
 status(false),
@@ -197,6 +167,38 @@ GHttpTask* GHttpTask::create()
     task->autorelease();
     
     return task;
+}
+
+void GHttpTask::write_data(void *buffer, size_t size, size_t nmemb)
+{
+    size_t len = size * nmemb;
+    if(this->getType() == GHTTPTYPE::REQUEST)
+    {
+        char *s1 = this->getData();
+        char *s2 = (char *)(buffer);
+        
+        char *result = (char *)malloc(this->getDataLen() + len);
+        if(s1)
+        {
+            memcpy(result, s1, this->getDataLen());
+        }
+        memcpy(result + this->getDataLen(), s2, len);
+        
+        this->setData(result);
+        this->setDataLen(this->getDataLen() + len);
+    }
+    else
+    {
+        this->writeFileData((unsigned char *)(buffer), len);
+    }
+    this->setSpeed(len);
+    mutex.lock();
+    std::cout << (int)(this->getProgress()) << ":" + this->getPath() << std::endl;
+    mutex.unlock();
+}
+void GHttpTask::progress_callback(double dltotal, double dlnow)
+{
+    this->setProgress(dlnow/dltotal*100);
 }
 
 void GHttpTask::setUrl(std::string url)

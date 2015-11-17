@@ -39,10 +39,8 @@ private:
     CURL* getHandle(GHttpTask* task);
     
 private:
-    std::vector<GHttpTask*> task_list;
     std::vector<CURL*> handle_list;
     void removeHandle(CURL* handle);
-    void removeTask(GHttpTask* task);
     static size_t write_data(void *buffer, size_t size, size_t nmemb, void *userp);
     static int progress_callback(void *clientp, double dltotal, double dlnow, double ultotal, double ulnow);
 };
@@ -87,7 +85,9 @@ public:
     //网络请求状态 true 请求成功
     void setStatus(bool status);
     bool getStatus();
-    
+
+    void write_data(void *buffer, size_t size, size_t nmemb);
+    void progress_callback(double dltotal, double dlnow);
 private:
     std::string url;
     GHTTPTYPE type;
