@@ -8,6 +8,7 @@
 
 #include "GGameControl.h"
 #include "net/GHtttpService.h"
+#include <regex>
 
 
 USING_NS_CC;
@@ -16,6 +17,7 @@ static GGameControl* _instanceGGameControl = nullptr;
 
 #define PRELOAD_ROOT_PATH "http://localhost:63342/cocosfw/"
 #define SCRIPT_PATH "cocosfw/src/"
+#define PRO_ROOT_PATH "cocosfw/"
 
 void registerCustomFunc(JSContext* cx, JS::HandleObject global) {
         // register some custom global functions
@@ -42,11 +44,36 @@ bool GGameControl::init()
     std::string path = FileUtils::getInstance()->getWritablePath() + SCRIPT_PATH;
     FileUtils::getInstance()->createDirectory(path);
     FileUtils::getInstance()->addSearchPath(path);
+    //项目读写根路径
+    path = FileUtils::getInstance()->getWritablePath() + PRO_ROOT_PATH;
+    FileUtils::getInstance()->addSearchPath(path);
     
     return true;
 }
 
 void GGameControl::run()
+{
+    GHtttpService* http = GHtttpService::getInstance();
+    
+    std::string path = FileUtils::getInstance()->getWritablePath() + PRO_ROOT_PATH;
+    std::string file = "project.json";
+    
+    GHttpTask *task = GHttpTask::create();
+    task->setUrl(PRELOAD_ROOT_PATH + file);
+    task->setType(GHTTPTYPE::DOWNLOAD);
+    task->setPath(path + file);
+    http->download(task);
+    
+    task = GHttpTask::create();
+    file = "includeFile.js";
+    task->setUrl(PRELOAD_ROOT_PATH + file);
+    task->setType(GHTTPTYPE::DOWNLOAD);
+    task->setPath(path + file);
+    task->setCallback(this->loadCallback);
+    http->download(task);
+}
+
+void GGameControl::loadCallback(std::string url, bool success)
 {
     auto sc = ScriptingCore::getInstance();
     sc->start();
@@ -54,13 +81,11 @@ void GGameControl::run()
 #if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
     sc->enableDebugger();
 #endif
-
+    
     ScriptEngineProtocol *engine = ScriptingCore::getInstance();
     ScriptEngineManager::getInstance()->setScriptEngine(engine);
-    ScriptingCore::getInstance()->runScript("main.js");
-
+    ScriptingCore::getInstance()->runScript("includeFile.js");
 }
-
 
 bool GGameControl::includeScript(JSContext *cx, uint32_t argc, jsval *vp)
 {
@@ -92,7 +117,12 @@ bool GGameControl::preload(std::string file)
     
     std::string path = FileUtils::getInstance()->getWritablePath() + SCRIPT_PATH;
     
-    
+    std::string dir(file);
+    dir = path + dir.substr(0, dir.rfind('/')+1);
+    if(!FileUtils::getInstance()->isDirectoryExist(dir))
+    {
+        FileUtils::getInstance()->createDirectory(dir);
+    }
     
     GHttpTask *task = GHttpTask::create();
     task->setUrl(PRELOAD_ROOT_PATH + file);
@@ -102,9 +132,4 @@ bool GGameControl::preload(std::string file)
     http->download(task);
     
     return task->getStatus();
-}
-
-void GGameControl::loadCallback(std::string url, bool success)
-{
-    
 }
