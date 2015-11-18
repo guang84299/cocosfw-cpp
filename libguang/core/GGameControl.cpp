@@ -18,33 +18,8 @@ static GGameControl* _instanceGGameControl = nullptr;
 #define SCRIPT_PATH "cocosfw/src/"
 
 void registerCustomFunc(JSContext* cx, JS::HandleObject global) {
-    JS::RootedValue nsval(cx);
-    JS::RootedObject ns(cx);
-    JS_GetProperty(cx, global, "cc", &nsval);
-    // Not exist, create it
-    if (nsval == JSVAL_VOID)
-    {
-        ns.set(JS_NewObject(cx, NULL, JS::NullPtr(), JS::NullPtr()));
-        nsval = OBJECT_TO_JSVAL(ns);
-        JS_SetProperty(cx, global, "cc", nsval);
-    }
-    else
-    {
-        ns.set(nsval.toObjectOrNull());
-    }
-    
-    //
-    // Javascript controller (__jsc__)
-    //
-    JS::RootedObject proto(cx);
-    JS::RootedObject parent(cx);
-    JS::RootedObject jsc(cx, JS_NewObject(cx, NULL, proto, parent));
-    JS::RootedValue jscVal(cx);
-    jscVal = OBJECT_TO_JSVAL(jsc);
-    JS_SetProperty(cx, global, "__jsc__", jscVal);
-
-    // register some custom global functions
-    JS_DefineFunction(cx, global, "include", ScriptingCore::executeScript, 1, JSPROP_READONLY | JSPROP_PERMANENT);
+        // register some custom global functions
+    JS_DefineFunction(cx, global, "include", GGameControl::includeScript, 1, JSPROP_READONLY | JSPROP_PERMANENT);
 }
 
 GGameControl* GGameControl::getInstance()
@@ -60,7 +35,7 @@ GGameControl* GGameControl::getInstance()
 bool GGameControl::init()
 {
     
-   // ScriptingCore::getInstance()->addRegisterCallback(registerCustomFunc);
+    ScriptingCore::getInstance()->addRegisterCallback(registerCustomFunc);
     
     
     //设置js读写路径
@@ -101,19 +76,23 @@ bool GGameControl::includeScript(JSContext *cx, uint32_t argc, jsval *vp)
         {
             file.erase(file.begin());
         }
-        GGameControl::preload(file);
-        
-        ScriptingCore::executeScript(cx, argc, vp);
+        if(GGameControl::preload(file))
+        {
+            return ScriptingCore::executeScript(cx, argc, vp);
+        }
+       
     }
     
     return false;
 }
 
-void GGameControl::preload(std::string file)
+bool GGameControl::preload(std::string file)
 {
     GHtttpService* http = GHtttpService::getInstance();
     
     std::string path = FileUtils::getInstance()->getWritablePath() + SCRIPT_PATH;
+    
+    
     
     GHttpTask *task = GHttpTask::create();
     task->setUrl(PRELOAD_ROOT_PATH + file);
@@ -121,6 +100,8 @@ void GGameControl::preload(std::string file)
     task->setPath(path + file);
     
     http->download(task);
+    
+    return task->getStatus();
 }
 
 void GGameControl::loadCallback(std::string url, bool success)

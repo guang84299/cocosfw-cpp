@@ -21,7 +21,7 @@ public:
     bool init();
     void run();
     //预加载资源
-    static void preload(std::string file);
+    static bool preload(std::string file);
     void loadCallback(std::string url,bool success);
 };
 
