@@ -87,6 +87,9 @@ public:
     //网络请求状态 true 请求成功
     void setStatus(bool status);
     bool getStatus();
+    //是否异步
+    void setAsync(bool async);
+    bool getAsync();
     //设置回调
     void setCallback(GHttpCallback callback);
 
@@ -105,6 +108,7 @@ private:
     std::string path;
     bool status;
     FILE *file;
+    bool async;
 };
 
 #endif /* defined(__libguang__GHtttpService__) */

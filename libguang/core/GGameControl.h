@@ -10,13 +10,18 @@
 #define GGameControl_h
 
 #include "cocos2d.h"
+#include "ScriptingCore.h"
 
-class GGameControl
+class GGameControl 
 {
 public:
     static GGameControl* getInstance();
+    static bool includeScript(JSContext *cx, uint32_t argc, jsval *vp);
+    
+    bool init();
+    void run();
     //预加载资源
-    void preload();
+    static void preload(std::string file);
     void loadCallback(std::string url,bool success);
 };
 

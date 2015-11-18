@@ -43,8 +43,7 @@
 #include "platform/ios/JavaScriptObjCBridge.h"
 #endif
 
-#include "net/GHtttpService.h"
-#include <iostream>
+#include "guang.h"
 
 USING_NS_CC;
 using namespace CocosDenshion;
@@ -154,15 +153,8 @@ bool AppDelegate::applicationDidFinishLaunching()
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
     sc->addRegisterCallback(JavaScriptObjCBridge::_js_register);
 #endif
-    sc->start();    
-    sc->runScript("script/jsb_boot.js");
-#if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
-    sc->enableDebugger();
-#endif
-    ScriptEngineProtocol *engine = ScriptingCore::getInstance();
-    ScriptEngineManager::getInstance()->setScriptEngine(engine);
-    ScriptingCore::getInstance()->runScript("main.js");
     
+    GGameControl::getInstance()->run();
     
     return true;
 }

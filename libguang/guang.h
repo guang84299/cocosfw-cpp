@@ -12,5 +12,6 @@
 #include <stdio.h>
 
 #include "net/GHtttpService.h"
+#include "core/GGameControl.h"
 
 #endif /* defined(__libguang__guang__) */

@@ -14,6 +14,7 @@
 		D872AFA71BF580070087CFFE /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D872AFA61BF580070087CFFE /* libcocos2d Mac.a */; };
 		D872AFAA1BF582EA0087CFFE /* GHtttpService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D872AFA81BF582EA0087CFFE /* GHtttpService.cpp */; };
 		D872AFAB1BF582EA0087CFFE /* GHtttpService.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA91BF582EA0087CFFE /* GHtttpService.h */; };
+		D8D183641BFC2D74006A40DF /* libjscocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D183631BFC2D74006A40DF /* libjscocos2d Mac.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		D872AFA61BF580070087CFFE /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "../../../../Library/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug/libcocos2d Mac.a"; sourceTree = "<group>"; };
 		D872AFA81BF582EA0087CFFE /* GHtttpService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHtttpService.cpp; path = net/GHtttpService.cpp; sourceTree = "<group>"; };
 		D872AFA91BF582EA0087CFFE /* GHtttpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHtttpService.h; path = net/GHtttpService.h; sourceTree = "<group>"; };
+		D8D183631BFC2D74006A40DF /* libjscocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjscocos2d Mac.a"; path = "../../../../Library/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug/libjscocos2d Mac.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8D183641BFC2D74006A40DF /* libjscocos2d Mac.a in Frameworks */,
 				D872AFA71BF580070087CFFE /* libcocos2d Mac.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +54,7 @@
 		D872AF8C1BF57FBB0087CFFE = {
 			isa = PBXGroup;
 			children = (
+				D8D183631BFC2D74006A40DF /* libjscocos2d Mac.a */,
 				62CB3DAD1BFB50FB00CFD686 /* core */,
 				D872AFAC1BF582F00087CFFE /* net */,
 				D872AFA61BF580070087CFFE /* libcocos2d Mac.a */,
@@ -180,8 +184,9 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
+					"COCOS2D_DEBUG=1",
+					USE_FILE32API,
+					"CC_ENABLE_CHIPMUNK_INTEGRATION=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -220,6 +225,11 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"CC_ENABLE_CHIPMUNK_INTEGRATION=1",
+					NDEBUG,
+					USE_FILE32API,
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -237,12 +247,18 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				EXECUTABLE_PREFIX = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					COCOS2D_JAVASCRIPT,
+					CC_TARGET_OS_MAC,
+					CC_KEYBOARD_SUPPORT,
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/external/glfw3/include/mac $(SRCROOT)/../cocos2d-x/external/curl/include/mac";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/cocos/platform/mac $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/cocos/base $(SRCROOT)/../cocos2d-x/cocos/2d $(SRCROOT)/../cocos2d-x/cocos/ui $(SRCROOT)/../cocos2d-x/external/glfw3/include/mac $(SRCROOT)/../cocos2d-x/external/curl/include/mac $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/auto $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/manual $(SRCROOT)/../cocos2d-x/external/spidermonkey/include/mac $(SRCROOT)/../cocos2d-x/external/spidermonkey/prebuilt/mac";
+				qq = "";
 			};
 			name = Debug;
 		};
@@ -251,12 +267,18 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				EXECUTABLE_PREFIX = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					COCOS2D_JAVASCRIPT,
+					CC_TARGET_OS_MAC,
+					CC_KEYBOARD_SUPPORT,
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/external/glfw3/include/mac $(SRCROOT)/../cocos2d-x/external/curl/include/mac";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/cocos/platform/mac $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/cocos/base $(SRCROOT)/../cocos2d-x/cocos/2d $(SRCROOT)/../cocos2d-x/cocos/ui $(SRCROOT)/../cocos2d-x/external/glfw3/include/mac $(SRCROOT)/../cocos2d-x/external/curl/include/mac $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/auto $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/manual $(SRCROOT)/../cocos2d-x/external/spidermonkey/include/mac $(SRCROOT)/../cocos2d-x/external/spidermonkey/prebuilt/mac";
+				qq = "";
 			};
 			name = Release;
 		};

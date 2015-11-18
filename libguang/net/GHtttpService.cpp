@@ -13,22 +13,22 @@
 
 USING_NS_CC;
 
-static GHtttpService* instance = nullptr;
+static GHtttpService* _instanceGHtttpService = nullptr;
 static std::mutex mutex;
 
 GHtttpService* GHtttpService::getInstance()
 {
-    if(!instance)
+    if(!_instanceGHtttpService)
     {
-        instance = new GHtttpService();
+        _instanceGHtttpService = new GHtttpService();
     }
-    return instance;
+    return _instanceGHtttpService;
 }
 
 void GHtttpService::destroy()
 {
-    delete instance;
-    instance = nullptr;
+    delete _instanceGHtttpService;
+    _instanceGHtttpService = nullptr;
 }
 
 GHtttpService::GHtttpService()
@@ -78,7 +78,8 @@ void GHtttpService::request(GHttpTask* task)
         {
             task->callback(task->getUrl(),task->getStatus());
         }
-        task->release();
+        if(task->getAsync())//只有异步时才release
+            task->release();
     }
     this->removeHandle(handle);
     mutex.unlock();
@@ -92,6 +93,7 @@ void GHtttpService::download(GHttpTask* task)
 
 void GHtttpService::asyncDownload(GHttpTask* task)
 {
+    task->setAsync(true);
     std::thread t(&GHtttpService::download,this,task);
     t.detach();
 }
@@ -157,6 +159,7 @@ timeout(0),
 len(0),
 data(nullptr),
 status(false),
+async(false),
 file(nullptr)
 {
 }
@@ -338,4 +341,13 @@ void GHttpTask::closeFile()
 void GHttpTask::setCallback(GHttpCallback callback)
 {
     this->callback = callback;
+}
+
+void GHttpTask::setAsync(bool async)
+{
+    this->async = async;
+}
+bool GHttpTask::getAsync()
+{
+    return this->async;
 }
