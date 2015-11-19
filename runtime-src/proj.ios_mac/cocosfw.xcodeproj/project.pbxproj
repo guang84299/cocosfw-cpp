@@ -44,6 +44,7 @@
 		509D4AE917EBB82000697056 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509D4AE817EBB82000697056 /* AppKit.framework */; };
 		509D4AEB17EBB82600697056 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509D4AEA17EBB82600697056 /* IOKit.framework */; };
 		6286A8A71BF6E87800C5CB4C /* libguang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D872AFA11BF57FBD0087CFFE /* libguang.a */; };
+		62AFEF541BFDFC1400723298 /* libguang ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62AFEF531BFDFC0300723298 /* libguang ios.a */; };
 		A92275421517C094001B78AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275411517C094001B78AA /* QuartzCore.framework */; };
 		A92275441517C094001B78AA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275431517C094001B78AA /* OpenGLES.framework */; };
 		A92275461517C094001B78AA /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92275451517C094001B78AA /* OpenAL.framework */; };
@@ -102,6 +103,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = D872AF941BF57FBB0087CFFE;
 			remoteInfo = libguang;
+		};
+		62AFEF4F1BFDFC0300723298 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D872AF9C1BF57FBB0087CFFE /* libguang.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 62AFEF451BFDFB6200723298;
+			remoteInfo = "libguang ios";
+		};
+		62AFEF521BFDFC0300723298 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D872AF9C1BF57FBB0087CFFE /* libguang.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 62AFEF461BFDFB6200723298;
+			remoteInfo = "libguang ios";
 		};
 		C037820618BF76AF00FE4F13 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -229,6 +244,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62AFEF541BFDFC1400723298 /* libguang ios.a in Frameworks */,
 				ED545A821B68A21500C3958E /* libiconv.dylib in Frameworks */,
 				BA3A85EC1A724AE900924D24 /* Security.framework in Frameworks */,
 				BA4E718119EB6E3F00932425 /* MediaPlayer.framework in Frameworks */,
@@ -393,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				D872AFA11BF57FBD0087CFFE /* libguang.a */,
+				62AFEF531BFDFC0300723298 /* libguang ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -431,6 +448,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				62AFEF501BFDFC0300723298 /* PBXTargetDependency */,
 				C037820B18BF77BC00FE4F13 /* PBXTargetDependency */,
 				1A67682F180E9C110076BC67 /* PBXTargetDependency */,
 			);
@@ -492,6 +510,13 @@
 			fileType = archive.ar;
 			path = "libcocos2d iOS.a";
 			remoteRef = 1AC6FB55180E9ACB004C840B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62AFEF531BFDFC0300723298 /* libguang ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libguang ios.a";
+			remoteRef = 62AFEF521BFDFC0300723298 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		C037820718BF76AF00FE4F13 /* libjscocos2d Mac.a */ = {
@@ -591,6 +616,11 @@
 			isa = PBXTargetDependency;
 			name = libguang;
 			targetProxy = 6286A8A41BF6E42A00C5CB4C /* PBXContainerItemProxy */;
+		};
+		62AFEF501BFDFC0300723298 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "libguang ios";
+			targetProxy = 62AFEF4F1BFDFC0300723298 /* PBXContainerItemProxy */;
 		};
 		C037820B18BF77BC00FE4F13 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -725,7 +755,7 @@
 				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../../cocos2d-x/cocos/platform/ios $(SRCROOT)/../../cocos2d-x/external/spidermonkey/include/ios $(SRCROOT)/../../cocos2d-x/plugin/jsbindings/auto $(SRCROOT)/../../cocos2d-x/plugin/jsbindings/manual";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../../cocos2d-x/cocos/platform/ios $(SRCROOT)/../../cocos2d-x/external/spidermonkey/include/ios $(SRCROOT)/../../cocos2d-x/plugin/jsbindings/auto $(SRCROOT)/../../cocos2d-x/plugin/jsbindings/manual $(SRCROOT)/../../libguang";
 				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
@@ -751,7 +781,7 @@
 				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../../cocos2d-x/cocos/platform/ios $(SRCROOT)/../../cocos2d-x/external/spidermonkey/include/ios $(SRCROOT)/../../cocos2d-x/plugin/jsbindings/auto $(SRCROOT)/../../cocos2d-x/plugin/jsbindings/manual";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../../cocos2d-x/cocos/platform/ios $(SRCROOT)/../../cocos2d-x/external/spidermonkey/include/ios $(SRCROOT)/../../cocos2d-x/plugin/jsbindings/auto $(SRCROOT)/../../cocos2d-x/plugin/jsbindings/manual $(SRCROOT)/../../libguang";
 				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Release;

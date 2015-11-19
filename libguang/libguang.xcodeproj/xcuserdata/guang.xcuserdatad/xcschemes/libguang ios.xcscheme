@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D872AF941BF57FBB0087CFFE"
-               BuildableName = "libguang mac.a"
-               BlueprintName = "libguang mac"
+               BlueprintIdentifier = "62AFEF451BFDFB6200723298"
+               BuildableName = "libguang ios.a"
+               BlueprintName = "libguang ios"
                ReferencedContainer = "container:libguang.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D872AF941BF57FBB0087CFFE"
-            BuildableName = "libguang mac.a"
-            BlueprintName = "libguang mac"
+            BlueprintIdentifier = "62AFEF451BFDFB6200723298"
+            BuildableName = "libguang ios.a"
+            BlueprintName = "libguang ios"
             ReferencedContainer = "container:libguang.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D872AF941BF57FBB0087CFFE"
-            BuildableName = "libguang mac.a"
-            BlueprintName = "libguang mac"
+            BlueprintIdentifier = "62AFEF451BFDFB6200723298"
+            BuildableName = "libguang ios.a"
+            BlueprintName = "libguang ios"
             ReferencedContainer = "container:libguang.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

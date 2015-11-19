@@ -7,13 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62AFEF561BFDFD3800723298 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62AFEF551BFDFD3800723298 /* libcocos2d iOS.a */; };
+		62AFEF581BFDFD3B00723298 /* libjscocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62AFEF571BFDFD3B00723298 /* libjscocos2d iOS.a */; };
+		62AFEF591BFDFDA300723298 /* GDebugLoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8011AC01BFDC35B00A820B3 /* GDebugLoadScene.cpp */; };
+		62AFEF5A1BFDFDA300723298 /* GLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8B475E41BFD807B006A6AE3 /* GLogger.cpp */; };
+		62AFEF5B1BFDFDA300723298 /* GUTF8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8B475E81BFDA8E6006A6AE3 /* GUTF8.cpp */; };
+		62AFEF5C1BFDFDA300723298 /* GResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8CA92E21BFD688A00B8A54D /* GResource.cpp */; };
+		62AFEF5D1BFDFDA300723298 /* GGameControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62CB3DAE1BFB517100CFD686 /* GGameControl.cpp */; };
+		62AFEF5E1BFDFDA300723298 /* GHtttpService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D872AFA81BF582EA0087CFFE /* GHtttpService.cpp */; };
+		62AFEF5F1BFDFDA300723298 /* guang.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D872AFA21BF57FD80087CFFE /* guang.cpp */; };
+		62AFEF681BFDFEFB00723298 /* GDebugLoadScene.h in Headers */ = {isa = PBXBuildFile; fileRef = D8011AC11BFDC35B00A820B3 /* GDebugLoadScene.h */; };
+		62AFEF691BFDFEFB00723298 /* GLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B475E51BFD807B006A6AE3 /* GLogger.h */; };
+		62AFEF6A1BFDFEFB00723298 /* GUTF8.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B475E91BFDA8E6006A6AE3 /* GUTF8.h */; };
+		62AFEF6B1BFDFEFB00723298 /* GResource.h in Headers */ = {isa = PBXBuildFile; fileRef = D8CA92E31BFD688A00B8A54D /* GResource.h */; };
+		62AFEF6C1BFDFEFB00723298 /* GGameControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CB3DAF1BFB517100CFD686 /* GGameControl.h */; };
+		62AFEF6D1BFDFEFB00723298 /* GHtttpService.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA91BF582EA0087CFFE /* GHtttpService.h */; };
+		62AFEF6E1BFDFEFB00723298 /* guang.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA31BF57FD80087CFFE /* guang.h */; };
 		62CB3DB01BFB517100CFD686 /* GGameControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62CB3DAE1BFB517100CFD686 /* GGameControl.cpp */; };
 		62CB3DB11BFB517100CFD686 /* GGameControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CB3DAF1BFB517100CFD686 /* GGameControl.h */; };
 		D8011AC21BFDC35B00A820B3 /* GDebugLoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8011AC01BFDC35B00A820B3 /* GDebugLoadScene.cpp */; };
 		D8011AC31BFDC35B00A820B3 /* GDebugLoadScene.h in Headers */ = {isa = PBXBuildFile; fileRef = D8011AC11BFDC35B00A820B3 /* GDebugLoadScene.h */; };
 		D872AFA41BF57FD80087CFFE /* guang.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D872AFA21BF57FD80087CFFE /* guang.cpp */; };
 		D872AFA51BF57FD80087CFFE /* guang.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA31BF57FD80087CFFE /* guang.h */; };
-		D872AFA71BF580070087CFFE /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D872AFA61BF580070087CFFE /* libcocos2d Mac.a */; };
 		D872AFAA1BF582EA0087CFFE /* GHtttpService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D872AFA81BF582EA0087CFFE /* GHtttpService.cpp */; };
 		D872AFAB1BF582EA0087CFFE /* GHtttpService.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA91BF582EA0087CFFE /* GHtttpService.h */; };
 		D8B475E61BFD807B006A6AE3 /* GLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8B475E41BFD807B006A6AE3 /* GLogger.cpp */; };
@@ -22,18 +37,19 @@
 		D8B475EB1BFDA8E6006A6AE3 /* GUTF8.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B475E91BFDA8E6006A6AE3 /* GUTF8.h */; };
 		D8CA92E41BFD688A00B8A54D /* GResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8CA92E21BFD688A00B8A54D /* GResource.cpp */; };
 		D8CA92E51BFD688A00B8A54D /* GResource.h in Headers */ = {isa = PBXBuildFile; fileRef = D8CA92E31BFD688A00B8A54D /* GResource.h */; };
-		D8D183641BFC2D74006A40DF /* libjscocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D183631BFC2D74006A40DF /* libjscocos2d Mac.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		62AFEF461BFDFB6200723298 /* libguang ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libguang ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		62AFEF551BFDFD3800723298 /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "../cocos2d-x/build/build/Debug-iphoneos/libcocos2d iOS.a"; sourceTree = "<group>"; };
+		62AFEF571BFDFD3B00723298 /* libjscocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjscocos2d iOS.a"; path = "../cocos2d-x/cocos/scripting/js-bindings/proj.ios_mac/build/Debug-iphoneos/libjscocos2d iOS.a"; sourceTree = "<group>"; };
 		62CB3DAE1BFB517100CFD686 /* GGameControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GGameControl.cpp; path = core/GGameControl.cpp; sourceTree = "<group>"; };
 		62CB3DAF1BFB517100CFD686 /* GGameControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGameControl.h; path = core/GGameControl.h; sourceTree = "<group>"; };
 		D8011AC01BFDC35B00A820B3 /* GDebugLoadScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GDebugLoadScene.cpp; path = scene/GDebugLoadScene.cpp; sourceTree = "<group>"; };
 		D8011AC11BFDC35B00A820B3 /* GDebugLoadScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDebugLoadScene.h; path = scene/GDebugLoadScene.h; sourceTree = "<group>"; };
-		D872AF951BF57FBB0087CFFE /* libguang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libguang.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D872AF951BF57FBB0087CFFE /* libguang mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libguang mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D872AFA21BF57FD80087CFFE /* guang.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guang.cpp; sourceTree = "<group>"; };
 		D872AFA31BF57FD80087CFFE /* guang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guang.h; sourceTree = "<group>"; };
-		D872AFA61BF580070087CFFE /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "../../../../Library/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug/libcocos2d Mac.a"; sourceTree = "<group>"; };
 		D872AFA81BF582EA0087CFFE /* GHtttpService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHtttpService.cpp; path = net/GHtttpService.cpp; sourceTree = "<group>"; };
 		D872AFA91BF582EA0087CFFE /* GHtttpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHtttpService.h; path = net/GHtttpService.h; sourceTree = "<group>"; };
 		D8B475E41BFD807B006A6AE3 /* GLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLogger.cpp; path = tools/GLogger.cpp; sourceTree = "<group>"; };
@@ -42,16 +58,22 @@
 		D8B475E91BFDA8E6006A6AE3 /* GUTF8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GUTF8.h; path = tools/GUTF8.h; sourceTree = "<group>"; };
 		D8CA92E21BFD688A00B8A54D /* GResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GResource.cpp; path = data/GResource.cpp; sourceTree = "<group>"; };
 		D8CA92E31BFD688A00B8A54D /* GResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GResource.h; path = data/GResource.h; sourceTree = "<group>"; };
-		D8D183631BFC2D74006A40DF /* libjscocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjscocos2d Mac.a"; path = "../../../../Library/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug/libjscocos2d Mac.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		62AFEF431BFDFB6200723298 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62AFEF581BFDFD3B00723298 /* libjscocos2d iOS.a in Frameworks */,
+				62AFEF561BFDFD3800723298 /* libcocos2d iOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D872AF921BF57FBB0087CFFE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8D183641BFC2D74006A40DF /* libjscocos2d Mac.a in Frameworks */,
-				D872AFA71BF580070087CFFE /* libcocos2d Mac.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,8 +108,8 @@
 				D872AFAC1BF582F00087CFFE /* net */,
 				D872AFA21BF57FD80087CFFE /* guang.cpp */,
 				D872AFA31BF57FD80087CFFE /* guang.h */,
-				D8D183631BFC2D74006A40DF /* libjscocos2d Mac.a */,
-				D872AFA61BF580070087CFFE /* libcocos2d Mac.a */,
+				62AFEF571BFDFD3B00723298 /* libjscocos2d iOS.a */,
+				62AFEF551BFDFD3800723298 /* libcocos2d iOS.a */,
 				D872AF961BF57FBB0087CFFE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,7 +117,8 @@
 		D872AF961BF57FBB0087CFFE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D872AF951BF57FBB0087CFFE /* libguang.a */,
+				D872AF951BF57FBB0087CFFE /* libguang mac.a */,
+				62AFEF461BFDFB6200723298 /* libguang ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,6 +155,20 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		62AFEF671BFDFED500723298 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62AFEF681BFDFEFB00723298 /* GDebugLoadScene.h in Headers */,
+				62AFEF691BFDFEFB00723298 /* GLogger.h in Headers */,
+				62AFEF6A1BFDFEFB00723298 /* GUTF8.h in Headers */,
+				62AFEF6B1BFDFEFB00723298 /* GResource.h in Headers */,
+				62AFEF6C1BFDFEFB00723298 /* GGameControl.h in Headers */,
+				62AFEF6D1BFDFEFB00723298 /* GHtttpService.h in Headers */,
+				62AFEF6E1BFDFEFB00723298 /* guang.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D872AF931BF57FBB0087CFFE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -149,9 +186,26 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D872AF941BF57FBB0087CFFE /* libguang */ = {
+		62AFEF451BFDFB6200723298 /* libguang ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D872AF991BF57FBB0087CFFE /* Build configuration list for PBXNativeTarget "libguang" */;
+			buildConfigurationList = 62AFEF4C1BFDFB6200723298 /* Build configuration list for PBXNativeTarget "libguang ios" */;
+			buildPhases = (
+				62AFEF421BFDFB6200723298 /* Sources */,
+				62AFEF431BFDFB6200723298 /* Frameworks */,
+				62AFEF671BFDFED500723298 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "libguang ios";
+			productName = "libguang ios";
+			productReference = 62AFEF461BFDFB6200723298 /* libguang ios.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D872AF941BF57FBB0087CFFE /* libguang mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D872AF991BF57FBB0087CFFE /* Build configuration list for PBXNativeTarget "libguang mac" */;
 			buildPhases = (
 				D872AF911BF57FBB0087CFFE /* Sources */,
 				D872AF921BF57FBB0087CFFE /* Frameworks */,
@@ -161,9 +215,9 @@
 			);
 			dependencies = (
 			);
-			name = libguang;
+			name = "libguang mac";
 			productName = libguang;
-			productReference = D872AF951BF57FBB0087CFFE /* libguang.a */;
+			productReference = D872AF951BF57FBB0087CFFE /* libguang mac.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -175,6 +229,9 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = xindong;
 				TargetAttributes = {
+					62AFEF451BFDFB6200723298 = {
+						CreatedOnToolsVersion = 7.1;
+					};
 					D872AF941BF57FBB0087CFFE = {
 						CreatedOnToolsVersion = 6.3.2;
 					};
@@ -192,12 +249,27 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D872AF941BF57FBB0087CFFE /* libguang */,
+				D872AF941BF57FBB0087CFFE /* libguang mac */,
+				62AFEF451BFDFB6200723298 /* libguang ios */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		62AFEF421BFDFB6200723298 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62AFEF591BFDFDA300723298 /* GDebugLoadScene.cpp in Sources */,
+				62AFEF5A1BFDFDA300723298 /* GLogger.cpp in Sources */,
+				62AFEF5B1BFDFDA300723298 /* GUTF8.cpp in Sources */,
+				62AFEF5C1BFDFDA300723298 /* GResource.cpp in Sources */,
+				62AFEF5D1BFDFDA300723298 /* GGameControl.cpp in Sources */,
+				62AFEF5E1BFDFDA300723298 /* GHtttpService.cpp in Sources */,
+				62AFEF5F1BFDFDA300723298 /* guang.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D872AF911BF57FBB0087CFFE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,6 +287,48 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		62AFEF4D1BFDFB6200723298 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_TESTABILITY = YES;
+				EXECUTABLE_PREFIX = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					COCOS2D_JAVASCRIPT,
+					CC_TARGET_OS_IPHONE,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/cocos/platform/ios $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/cocos/base $(SRCROOT)/../cocos2d-x/cocos/2d $(SRCROOT)/../cocos2d-x/cocos/ui $(SRCROOT)/../cocos2d-x/external/glfw3/include/ios $(SRCROOT)/../cocos2d-x/external/curl/include/ios $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/auto $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/manual $(SRCROOT)/../cocos2d-x/external/spidermonkey/include/ios $(SRCROOT)/../cocos2d-x/external/spidermonkey/prebuilt/ios";
+			};
+			name = Debug;
+		};
+		62AFEF4E1BFDFB6200723298 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EXECUTABLE_PREFIX = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					COCOS2D_JAVASCRIPT,
+					CC_TARGET_OS_IPHONE,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/cocos/platform/ios $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/cocos/base $(SRCROOT)/../cocos2d-x/cocos/2d $(SRCROOT)/../cocos2d-x/cocos/ui $(SRCROOT)/../cocos2d-x/external/glfw3/include/ios $(SRCROOT)/../cocos2d-x/external/curl/include/ios $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/auto $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/manual $(SRCROOT)/../cocos2d-x/external/spidermonkey/include/ios $(SRCROOT)/../cocos2d-x/external/spidermonkey/prebuilt/ios";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		D872AF971BF57FBB0087CFFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -342,6 +456,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		62AFEF4C1BFDFB6200723298 /* Build configuration list for PBXNativeTarget "libguang ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62AFEF4D1BFDFB6200723298 /* Debug */,
+				62AFEF4E1BFDFB6200723298 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		D872AF901BF57FBB0087CFFE /* Build configuration list for PBXProject "libguang" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -351,7 +473,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D872AF991BF57FBB0087CFFE /* Build configuration list for PBXNativeTarget "libguang" */ = {
+		D872AF991BF57FBB0087CFFE /* Build configuration list for PBXNativeTarget "libguang mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D872AF9A1BF57FBB0087CFFE /* Debug */,

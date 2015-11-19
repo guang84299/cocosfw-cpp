@@ -13,7 +13,7 @@
 
 USING_NS_CC;
 
-std::string GDebugLoadScene::file_url = nullptr;
+std::string GDebugLoadScene::file_url = "";
 
 bool GDebugLoadScene::init()
 {
@@ -21,16 +21,19 @@ bool GDebugLoadScene::init()
     auto layer = LayerColor::create(Color4B(255,255,255,255),size.width,size.height);
     this->addChild(layer);
     
-    auto label = Label::createWithSystemFont("加载js文件...", "", 24);
-    label->setPosition(20,size.height*0.6);
-    label->setAnchorPoint(Vec2(0,0.5));
-    this->addChild(label);
+    this->label_text = Label::createWithSystemFont("", "", 24);
+    this->label_text->setTextColor(Color4B::BLACK);
+    this->label_text->setPosition(size.width/3,size.height*0.6);
+    this->label_text->setAnchorPoint(Vec2(0,0.5));
+    this->addChild(this->label_text);
     
     this->label_file = Label::createWithSystemFont("", "", 20);
+    this->label_file->setTextColor(Color4B::BLACK);
     this->label_file->setPosition(size.width/2,size.height*0.4);
     this->addChild( this->label_file);
 
-    this->scheduleOnce(schedule_selector(GDebugLoadScene::loadBase), 0.2);
+    this->_num = 0;
+    this->scheduleOnce(schedule_selector(GDebugLoadScene::loadBase), 0.3);
     this->schedule(schedule_selector(GDebugLoadScene::updateLabel), 0.3);
     
     return true;
@@ -61,6 +64,19 @@ void GDebugLoadScene::loadBase(float dt)
 
 void GDebugLoadScene::updateLabel(float dt)
 {
+    std::string s = "正在加载js文件，请稍后";
+    if(this->_num == 2)
+        s = s + ".";
+    else if(this->_num == 3)
+        s = s + "..";
+    else if(this->_num == 4)
+    {
+        s = s + "...";
+        this->_num = 0;
+    }
+    this->_num ++;
+    this->label_text->setString(s);
+    
     this->label_file->setString(GDebugLoadScene::file_url);
     
     if( GDebugLoadScene::file_url == "load end")

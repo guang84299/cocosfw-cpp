@@ -26,6 +26,8 @@ public:
     
     static std::string file_url;
 private:
+    int _num;
+    cocos2d::Label *label_text;
     cocos2d::Label *label_file;
     
 };
