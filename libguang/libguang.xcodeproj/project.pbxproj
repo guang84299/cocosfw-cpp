@@ -9,23 +9,39 @@
 /* Begin PBXBuildFile section */
 		62CB3DB01BFB517100CFD686 /* GGameControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62CB3DAE1BFB517100CFD686 /* GGameControl.cpp */; };
 		62CB3DB11BFB517100CFD686 /* GGameControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CB3DAF1BFB517100CFD686 /* GGameControl.h */; };
+		D8011AC21BFDC35B00A820B3 /* GDebugLoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8011AC01BFDC35B00A820B3 /* GDebugLoadScene.cpp */; };
+		D8011AC31BFDC35B00A820B3 /* GDebugLoadScene.h in Headers */ = {isa = PBXBuildFile; fileRef = D8011AC11BFDC35B00A820B3 /* GDebugLoadScene.h */; };
 		D872AFA41BF57FD80087CFFE /* guang.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D872AFA21BF57FD80087CFFE /* guang.cpp */; };
 		D872AFA51BF57FD80087CFFE /* guang.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA31BF57FD80087CFFE /* guang.h */; };
 		D872AFA71BF580070087CFFE /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D872AFA61BF580070087CFFE /* libcocos2d Mac.a */; };
 		D872AFAA1BF582EA0087CFFE /* GHtttpService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D872AFA81BF582EA0087CFFE /* GHtttpService.cpp */; };
 		D872AFAB1BF582EA0087CFFE /* GHtttpService.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA91BF582EA0087CFFE /* GHtttpService.h */; };
+		D8B475E61BFD807B006A6AE3 /* GLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8B475E41BFD807B006A6AE3 /* GLogger.cpp */; };
+		D8B475E71BFD807B006A6AE3 /* GLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B475E51BFD807B006A6AE3 /* GLogger.h */; };
+		D8B475EA1BFDA8E6006A6AE3 /* GUTF8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8B475E81BFDA8E6006A6AE3 /* GUTF8.cpp */; };
+		D8B475EB1BFDA8E6006A6AE3 /* GUTF8.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B475E91BFDA8E6006A6AE3 /* GUTF8.h */; };
+		D8CA92E41BFD688A00B8A54D /* GResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8CA92E21BFD688A00B8A54D /* GResource.cpp */; };
+		D8CA92E51BFD688A00B8A54D /* GResource.h in Headers */ = {isa = PBXBuildFile; fileRef = D8CA92E31BFD688A00B8A54D /* GResource.h */; };
 		D8D183641BFC2D74006A40DF /* libjscocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D183631BFC2D74006A40DF /* libjscocos2d Mac.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		62CB3DAE1BFB517100CFD686 /* GGameControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GGameControl.cpp; path = core/GGameControl.cpp; sourceTree = "<group>"; };
 		62CB3DAF1BFB517100CFD686 /* GGameControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGameControl.h; path = core/GGameControl.h; sourceTree = "<group>"; };
+		D8011AC01BFDC35B00A820B3 /* GDebugLoadScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GDebugLoadScene.cpp; path = scene/GDebugLoadScene.cpp; sourceTree = "<group>"; };
+		D8011AC11BFDC35B00A820B3 /* GDebugLoadScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDebugLoadScene.h; path = scene/GDebugLoadScene.h; sourceTree = "<group>"; };
 		D872AF951BF57FBB0087CFFE /* libguang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libguang.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D872AFA21BF57FD80087CFFE /* guang.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guang.cpp; sourceTree = "<group>"; };
 		D872AFA31BF57FD80087CFFE /* guang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guang.h; sourceTree = "<group>"; };
 		D872AFA61BF580070087CFFE /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "../../../../Library/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug/libcocos2d Mac.a"; sourceTree = "<group>"; };
 		D872AFA81BF582EA0087CFFE /* GHtttpService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHtttpService.cpp; path = net/GHtttpService.cpp; sourceTree = "<group>"; };
 		D872AFA91BF582EA0087CFFE /* GHtttpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHtttpService.h; path = net/GHtttpService.h; sourceTree = "<group>"; };
+		D8B475E41BFD807B006A6AE3 /* GLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLogger.cpp; path = tools/GLogger.cpp; sourceTree = "<group>"; };
+		D8B475E51BFD807B006A6AE3 /* GLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLogger.h; path = tools/GLogger.h; sourceTree = "<group>"; };
+		D8B475E81BFDA8E6006A6AE3 /* GUTF8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GUTF8.cpp; path = tools/GUTF8.cpp; sourceTree = "<group>"; };
+		D8B475E91BFDA8E6006A6AE3 /* GUTF8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GUTF8.h; path = tools/GUTF8.h; sourceTree = "<group>"; };
+		D8CA92E21BFD688A00B8A54D /* GResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GResource.cpp; path = data/GResource.cpp; sourceTree = "<group>"; };
+		D8CA92E31BFD688A00B8A54D /* GResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GResource.h; path = data/GResource.h; sourceTree = "<group>"; };
 		D8D183631BFC2D74006A40DF /* libjscocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjscocos2d Mac.a"; path = "../../../../Library/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug/libjscocos2d Mac.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,15 +67,27 @@
 			name = core;
 			sourceTree = "<group>";
 		};
+		D8011AC41BFDC36200A820B3 /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				D8011AC01BFDC35B00A820B3 /* GDebugLoadScene.cpp */,
+				D8011AC11BFDC35B00A820B3 /* GDebugLoadScene.h */,
+			);
+			name = scene;
+			sourceTree = "<group>";
+		};
 		D872AF8C1BF57FBB0087CFFE = {
 			isa = PBXGroup;
 			children = (
-				D8D183631BFC2D74006A40DF /* libjscocos2d Mac.a */,
+				D8011AC41BFDC36200A820B3 /* scene */,
+				D8CA92EF1BFD7B4100B8A54D /* tools */,
+				D8CA92E61BFD68A700B8A54D /* data */,
 				62CB3DAD1BFB50FB00CFD686 /* core */,
 				D872AFAC1BF582F00087CFFE /* net */,
-				D872AFA61BF580070087CFFE /* libcocos2d Mac.a */,
 				D872AFA21BF57FD80087CFFE /* guang.cpp */,
 				D872AFA31BF57FD80087CFFE /* guang.h */,
+				D8D183631BFC2D74006A40DF /* libjscocos2d Mac.a */,
+				D872AFA61BF580070087CFFE /* libcocos2d Mac.a */,
 				D872AF961BF57FBB0087CFFE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,6 +109,26 @@
 			name = net;
 			sourceTree = "<group>";
 		};
+		D8CA92E61BFD68A700B8A54D /* data */ = {
+			isa = PBXGroup;
+			children = (
+				D8CA92E21BFD688A00B8A54D /* GResource.cpp */,
+				D8CA92E31BFD688A00B8A54D /* GResource.h */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
+		D8CA92EF1BFD7B4100B8A54D /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				D8B475E41BFD807B006A6AE3 /* GLogger.cpp */,
+				D8B475E51BFD807B006A6AE3 /* GLogger.h */,
+				D8B475E81BFDA8E6006A6AE3 /* GUTF8.cpp */,
+				D8B475E91BFDA8E6006A6AE3 /* GUTF8.h */,
+			);
+			name = tools;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -89,7 +137,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D872AFA51BF57FD80087CFFE /* guang.h in Headers */,
+				D8011AC31BFDC35B00A820B3 /* GDebugLoadScene.h in Headers */,
 				D872AFAB1BF582EA0087CFFE /* GHtttpService.h in Headers */,
+				D8CA92E51BFD688A00B8A54D /* GResource.h in Headers */,
+				D8B475EB1BFDA8E6006A6AE3 /* GUTF8.h in Headers */,
+				D8B475E71BFD807B006A6AE3 /* GLogger.h in Headers */,
 				62CB3DB11BFB517100CFD686 /* GGameControl.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,8 +203,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D872AFAA1BF582EA0087CFFE /* GHtttpService.cpp in Sources */,
+				D8CA92E41BFD688A00B8A54D /* GResource.cpp in Sources */,
+				D8B475EA1BFDA8E6006A6AE3 /* GUTF8.cpp in Sources */,
 				62CB3DB01BFB517100CFD686 /* GGameControl.cpp in Sources */,
+				D8011AC21BFDC35B00A820B3 /* GDebugLoadScene.cpp in Sources */,
 				D872AFA41BF57FD80087CFFE /* guang.cpp in Sources */,
+				D8B475E61BFD807B006A6AE3 /* GLogger.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +307,7 @@
 					COCOS2D_JAVASCRIPT,
 					CC_TARGET_OS_MAC,
 					CC_KEYBOARD_SUPPORT,
+					"COCOS2D_DEBUG=1",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

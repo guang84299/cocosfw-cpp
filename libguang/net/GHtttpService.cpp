@@ -8,7 +8,7 @@
 
 #include "GHtttpService.h"
 #include "curl/curl.h"
-#include <iostream>
+#include "tools/GLogger.h"
 #include <thread>
 
 USING_NS_CC;
@@ -45,7 +45,7 @@ GHtttpService::~GHtttpService()
     this->handle_list.clear();
     curl_global_cleanup();
     
-    std::cout << "~GHtttpService()!!!!" << std::endl;
+    GLog("~GHtttpService!!!");
 }
 
 void GHtttpService::request(GHttpTask* task)
@@ -65,24 +65,25 @@ void GHtttpService::request(GHttpTask* task)
     if(success == CURLE_OK && retcode == 200)
     {
         task->setStatus(true);
-        std::cout << "request ok!!!!" << std::endl;
+        GLog("http request:%s ok",task->getUrl().c_str());
     }
     else
     {
-        std::cout << "failure!!!!" << std::endl;
+        GLogE("http request:%s failure",task->getUrl().c_str());
     }
     if(task->getType() == GHTTPTYPE::DOWNLOAD)
     {
         task->closeFile();
-        if(task->callback)
-        {
-            task->callback(task->getUrl(),task->getStatus());
-        }
         if(task->getAsync())//只有异步时才release
             task->release();
     }
     this->removeHandle(handle);
     mutex.unlock();
+    
+    if(task->callback)
+    {
+        task->callback(task->getUrl(),task->getStatus());
+    }
 }
 
 void GHtttpService::download(GHttpTask* task)
@@ -166,7 +167,7 @@ file(nullptr)
 
 GHttpTask::~GHttpTask()
 {
-    CCLOG("----~GHttpTask-----" + this->path);
+   // GLog(("----~GHttpTask-----" + this->path).c_str());
 }
 GHttpTask* GHttpTask::create()
 {
@@ -199,9 +200,6 @@ void GHttpTask::write_data(void *buffer, size_t size, size_t nmemb)
         this->writeFileData((unsigned char *)(buffer), len);
     }
     this->setSpeed(len);
-    mutex.lock();
-    std::cout << (int)(this->getProgress()) << ":" + this->getPath() << std::endl;
-    mutex.unlock();
 }
 void GHttpTask::progress_callback(double dltotal, double dlnow)
 {
@@ -317,8 +315,6 @@ void GHttpTask::openFile()
     if(!this->file)
     {
         const char* mode = "wb";
-        
-        CCASSERT(!this->path.empty() && size != 0, "writeFileData failure!!!.");
         
         auto fileutils = FileUtils::getInstance();
         do

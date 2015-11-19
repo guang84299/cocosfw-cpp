@@ -12,6 +12,13 @@
 #include <stdio.h>
 
 #include "net/GHtttpService.h"
+
+
 #include "core/GGameControl.h"
+
+#include "data/GResource.h"
+
+#include "tools/GUTF8.h"
+#include "tools/GLogger.h"
 
 #endif /* defined(__libguang__guang__) */

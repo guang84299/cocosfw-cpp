@@ -7,17 +7,14 @@
 //
 
 #include "GGameControl.h"
-#include "net/GHtttpService.h"
-#include <regex>
+#include "scene/GDebugLoadScene.h"
+#include "data/GResource.h"
 
 
 USING_NS_CC;
 
 static GGameControl* _instanceGGameControl = nullptr;
 
-#define PRELOAD_ROOT_PATH "http://localhost:63342/cocosfw/"
-#define SCRIPT_PATH "cocosfw/src/"
-#define PRO_ROOT_PATH "cocosfw/"
 
 void registerCustomFunc(JSContext* cx, JS::HandleObject global) {
         // register some custom global functions
@@ -41,50 +38,19 @@ bool GGameControl::init()
     
     
     //设置js读写路径
-    std::string path = FileUtils::getInstance()->getWritablePath() + SCRIPT_PATH;
-    FileUtils::getInstance()->createDirectory(path);
-    FileUtils::getInstance()->addSearchPath(path);
+    FileUtils::getInstance()->createDirectory(GResource::getInstance()->getWriteCodePath());
+    FileUtils::getInstance()->addSearchPath(GResource::getInstance()->getWriteCodePath());
     //项目读写根路径
-    path = FileUtils::getInstance()->getWritablePath() + PRO_ROOT_PATH;
-    FileUtils::getInstance()->addSearchPath(path);
+    FileUtils::getInstance()->addSearchPath(GResource::getInstance()->getWritePath());
     
     return true;
 }
 
 void GGameControl::run()
 {
-    GHtttpService* http = GHtttpService::getInstance();
-    
-    std::string path = FileUtils::getInstance()->getWritablePath() + PRO_ROOT_PATH;
-    std::string file = "project.json";
-    
-    GHttpTask *task = GHttpTask::create();
-    task->setUrl(PRELOAD_ROOT_PATH + file);
-    task->setType(GHTTPTYPE::DOWNLOAD);
-    task->setPath(path + file);
-    http->download(task);
-    
-    task = GHttpTask::create();
-    file = "includeFile.js";
-    task->setUrl(PRELOAD_ROOT_PATH + file);
-    task->setType(GHTTPTYPE::DOWNLOAD);
-    task->setPath(path + file);
-    task->setCallback(this->loadCallback);
-    http->download(task);
-}
-
-void GGameControl::loadCallback(std::string url, bool success)
-{
-    auto sc = ScriptingCore::getInstance();
-    sc->start();
-    sc->runScript("script/jsb_boot.js");
-#if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
-    sc->enableDebugger();
+#if COCOS2D_DEBUG
+    Director::getInstance()->runWithScene(GDebugLoadScene::create());
 #endif
-    
-    ScriptEngineProtocol *engine = ScriptingCore::getInstance();
-    ScriptEngineManager::getInstance()->setScriptEngine(engine);
-    ScriptingCore::getInstance()->runScript("includeFile.js");
 }
 
 bool GGameControl::includeScript(JSContext *cx, uint32_t argc, jsval *vp)
@@ -101,7 +67,7 @@ bool GGameControl::includeScript(JSContext *cx, uint32_t argc, jsval *vp)
         {
             file.erase(file.begin());
         }
-        if(GGameControl::preload(file))
+        if(GDebugLoadScene::preload(file))
         {
             return ScriptingCore::executeScript(cx, argc, vp);
         }
@@ -109,27 +75,4 @@ bool GGameControl::includeScript(JSContext *cx, uint32_t argc, jsval *vp)
     }
     
     return false;
-}
-
-bool GGameControl::preload(std::string file)
-{
-    GHtttpService* http = GHtttpService::getInstance();
-    
-    std::string path = FileUtils::getInstance()->getWritablePath() + SCRIPT_PATH;
-    
-    std::string dir(file);
-    dir = path + dir.substr(0, dir.rfind('/')+1);
-    if(!FileUtils::getInstance()->isDirectoryExist(dir))
-    {
-        FileUtils::getInstance()->createDirectory(dir);
-    }
-    
-    GHttpTask *task = GHttpTask::create();
-    task->setUrl(PRELOAD_ROOT_PATH + file);
-    task->setType(GHTTPTYPE::DOWNLOAD);
-    task->setPath(path + file);
-    
-    http->download(task);
-    
-    return task->getStatus();
 }

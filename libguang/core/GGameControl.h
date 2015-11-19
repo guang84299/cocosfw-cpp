@@ -2,7 +2,7 @@
 //  GGameControl.h
 //  libguang
 //
-//  Created by guang on 15/11/17.
+//  Created by ChunGuang Yan on 15/11/17.
 //  Copyright © 2015年 xindong. All rights reserved.
 //
 
@@ -20,9 +20,6 @@ public:
     
     bool init();
     void run();
-    //预加载资源
-    static bool preload(std::string file);
-    static void loadCallback(std::string url,bool success);
 };
 
 #endif /* GGameControl_h */
