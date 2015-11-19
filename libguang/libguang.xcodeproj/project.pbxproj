@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62AFEF561BFDFD3800723298 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62AFEF551BFDFD3800723298 /* libcocos2d iOS.a */; };
-		62AFEF581BFDFD3B00723298 /* libjscocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62AFEF571BFDFD3B00723298 /* libjscocos2d iOS.a */; };
 		62AFEF591BFDFDA300723298 /* GDebugLoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8011AC01BFDC35B00A820B3 /* GDebugLoadScene.cpp */; };
 		62AFEF5A1BFDFDA300723298 /* GLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8B475E41BFD807B006A6AE3 /* GLogger.cpp */; };
 		62AFEF5B1BFDFDA300723298 /* GUTF8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8B475E81BFDA8E6006A6AE3 /* GUTF8.cpp */; };
@@ -23,6 +21,9 @@
 		62AFEF6C1BFDFEFB00723298 /* GGameControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CB3DAF1BFB517100CFD686 /* GGameControl.h */; };
 		62AFEF6D1BFDFEFB00723298 /* GHtttpService.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA91BF582EA0087CFFE /* GHtttpService.h */; };
 		62AFEF6E1BFDFEFB00723298 /* guang.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA31BF57FD80087CFFE /* guang.h */; };
+		62AFEF991BFE217200723298 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62AFEF981BFE217200723298 /* libcocos2d iOS.a */; };
+		62AFEF9B1BFE217600723298 /* libjscocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62AFEF9A1BFE217600723298 /* libjscocos2d iOS.a */; };
+		62AFEFB51BFE26CB00723298 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62AFEFB41BFE26CB00723298 /* libcurl.a */; };
 		62CB3DB01BFB517100CFD686 /* GGameControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62CB3DAE1BFB517100CFD686 /* GGameControl.cpp */; };
 		62CB3DB11BFB517100CFD686 /* GGameControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CB3DAF1BFB517100CFD686 /* GGameControl.h */; };
 		D8011AC21BFDC35B00A820B3 /* GDebugLoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8011AC01BFDC35B00A820B3 /* GDebugLoadScene.cpp */; };
@@ -41,8 +42,9 @@
 
 /* Begin PBXFileReference section */
 		62AFEF461BFDFB6200723298 /* libguang ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libguang ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		62AFEF551BFDFD3800723298 /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "../cocos2d-x/build/build/Debug-iphoneos/libcocos2d iOS.a"; sourceTree = "<group>"; };
-		62AFEF571BFDFD3B00723298 /* libjscocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjscocos2d iOS.a"; path = "../cocos2d-x/cocos/scripting/js-bindings/proj.ios_mac/build/Debug-iphoneos/libjscocos2d iOS.a"; sourceTree = "<group>"; };
+		62AFEF981BFE217200723298 /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "../cocos2d-x/build/build/Debug-iphoneos/libcocos2d iOS.a"; sourceTree = "<group>"; };
+		62AFEF9A1BFE217600723298 /* libjscocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjscocos2d iOS.a"; path = "../cocos2d-x/cocos/scripting/js-bindings/proj.ios_mac/build/Debug-iphoneos/libjscocos2d iOS.a"; sourceTree = "<group>"; };
+		62AFEFB41BFE26CB00723298 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = "../cocos2d-x/external/curl/prebuilt/ios/libcurl.a"; sourceTree = "<group>"; };
 		62CB3DAE1BFB517100CFD686 /* GGameControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GGameControl.cpp; path = core/GGameControl.cpp; sourceTree = "<group>"; };
 		62CB3DAF1BFB517100CFD686 /* GGameControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGameControl.h; path = core/GGameControl.h; sourceTree = "<group>"; };
 		D8011AC01BFDC35B00A820B3 /* GDebugLoadScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GDebugLoadScene.cpp; path = scene/GDebugLoadScene.cpp; sourceTree = "<group>"; };
@@ -65,8 +67,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62AFEF581BFDFD3B00723298 /* libjscocos2d iOS.a in Frameworks */,
-				62AFEF561BFDFD3800723298 /* libcocos2d iOS.a in Frameworks */,
+				62AFEFB51BFE26CB00723298 /* libcurl.a in Frameworks */,
+				62AFEF9B1BFE217600723298 /* libjscocos2d iOS.a in Frameworks */,
+				62AFEF991BFE217200723298 /* libcocos2d iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +83,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62AFEFB61BFE27CA00723298 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				62AFEFB41BFE26CB00723298 /* libcurl.a */,
+				62AFEF9A1BFE217600723298 /* libjscocos2d iOS.a */,
+				62AFEF981BFE217200723298 /* libcocos2d iOS.a */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
 		62CB3DAD1BFB50FB00CFD686 /* core */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,8 +121,7 @@
 				D872AFAC1BF582F00087CFFE /* net */,
 				D872AFA21BF57FD80087CFFE /* guang.cpp */,
 				D872AFA31BF57FD80087CFFE /* guang.h */,
-				62AFEF571BFDFD3B00723298 /* libjscocos2d iOS.a */,
-				62AFEF551BFDFD3800723298 /* libcocos2d iOS.a */,
+				62AFEFB61BFE27CA00723298 /* libs */,
 				D872AF961BF57FBB0087CFFE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -300,6 +312,7 @@
 					CC_TARGET_OS_IPHONE,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../cocos2d-x/external/curl/prebuilt/ios\"";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -320,6 +333,7 @@
 					CC_TARGET_OS_IPHONE,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../cocos2d-x/external/curl/prebuilt/ios\"";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -463,6 +477,7 @@
 				62AFEF4E1BFDFB6200723298 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D872AF901BF57FBB0087CFFE /* Build configuration list for PBXProject "libguang" */ = {
 			isa = XCConfigurationList;
