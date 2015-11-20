@@ -65,16 +65,12 @@ void GDebugLoadScene::loadBase(float dt)
 void GDebugLoadScene::updateLabel(float dt)
 {
     std::string s = "正在加载js文件，请稍后";
-    if(this->_num == 2)
-        s = s + ".";
-    else if(this->_num == 3)
-        s = s + "..";
-    else if(this->_num == 4)
+    for(int i=0;i<this->_num;i++)
     {
-        s = s + "...";
-        this->_num = 0;
+        s += ".";
     }
     this->_num ++;
+    this->_num = this->_num >= 4 ? 0 : this->_num;
     this->label_text->setString(s);
     
     this->label_file->setString(GDebugLoadScene::file_url);

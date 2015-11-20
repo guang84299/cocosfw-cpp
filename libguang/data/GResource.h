@@ -31,6 +31,20 @@ public:
     std::string getCachePath();
     //根据下载文件创建文件夹
     bool createDirForUrlFile(std::string file,bool isCode);
+    //返回一个文件的根目录
+    std::string baseDir(std::string file);
+    //返回一个文件的文件名
+    std::string baseFileName(std::string file);
+    //判断一个字符串是否为文件
+    bool isFile(std::string path);
+    //拷贝一个文件
+    bool copyFile(std::string file, std::string target);
+    //删除
+    bool removeFile(std::string file);
+    //解压
+    bool decompress(std::string zip, bool isDecryption);
+    //解密
+    bool decryption(char* bytes,int len);
     
 private:
     std::string _writePath;

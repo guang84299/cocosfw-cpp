@@ -4,30 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>libguang ios.xcscheme</key>
+		<key>cocosfw-desktop.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>6</integer>
 		</dict>
-		<key>libguang.xcscheme</key>
+		<key>cocosfw-mobile.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>62AFEF451BFDFB6200723298</key>
+		<key>509D4A7517EBB24E00697056</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D872AF941BF57FBB0087CFFE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D8D183681BFC5A44006A40DF</key>
+		<key>A922753C1517C094001B78AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

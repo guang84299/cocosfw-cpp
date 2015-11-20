@@ -317,7 +317,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/cocos/platform/ios $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/cocos/base $(SRCROOT)/../cocos2d-x/cocos/2d $(SRCROOT)/../cocos2d-x/cocos/ui $(SRCROOT)/../cocos2d-x/external/glfw3/include/ios $(SRCROOT)/../cocos2d-x/external/curl/include/ios $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/auto $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/manual $(SRCROOT)/../cocos2d-x/external/spidermonkey/include/ios $(SRCROOT)/../cocos2d-x/external/spidermonkey/prebuilt/ios";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/ $(SRCROOT)/../cocos2d-x/external/ $(SRCROOT)/../cocos2d-x/cocos/platform/ios $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/cocos/base $(SRCROOT)/../cocos2d-x/cocos/2d $(SRCROOT)/../cocos2d-x/cocos/ui $(SRCROOT)/../cocos2d-x/external/glfw3/include/ios $(SRCROOT)/../cocos2d-x/external/curl/include/ios $(SRCROOT)/../cocos2d-x/external/unzip/ $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/auto $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/manual $(SRCROOT)/../cocos2d-x/external/spidermonkey/include/ios $(SRCROOT)/../cocos2d-x/external/spidermonkey/prebuilt/ios $(SRCROOT)/../cocos2d-x/extensions/ $(SRCROOT)/../cocos2d-x/cocos/platform/";
 			};
 			name = Debug;
 		};
@@ -338,7 +338,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/cocos/platform/ios $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/cocos/base $(SRCROOT)/../cocos2d-x/cocos/2d $(SRCROOT)/../cocos2d-x/cocos/ui $(SRCROOT)/../cocos2d-x/external/glfw3/include/ios $(SRCROOT)/../cocos2d-x/external/curl/include/ios $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/auto $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/manual $(SRCROOT)/../cocos2d-x/external/spidermonkey/include/ios $(SRCROOT)/../cocos2d-x/external/spidermonkey/prebuilt/ios";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/ $(SRCROOT)/../cocos2d-x/external/ $(SRCROOT)/../cocos2d-x/cocos/platform/ios $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/cocos/base $(SRCROOT)/../cocos2d-x/cocos/2d $(SRCROOT)/../cocos2d-x/cocos/ui $(SRCROOT)/../cocos2d-x/external/glfw3/include/ios $(SRCROOT)/../cocos2d-x/external/curl/include/ios $(SRCROOT)/../cocos2d-x/external/unzip/ $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/auto $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/manual $(SRCROOT)/../cocos2d-x/external/spidermonkey/include/ios $(SRCROOT)/../cocos2d-x/external/spidermonkey/prebuilt/ios $(SRCROOT)/../cocos2d-x/extensions/ $(SRCROOT)/../cocos2d-x/cocos/platform/";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -442,7 +442,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/cocos/platform/mac $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/cocos/base $(SRCROOT)/../cocos2d-x/cocos/2d $(SRCROOT)/../cocos2d-x/cocos/ui $(SRCROOT)/../cocos2d-x/external/glfw3/include/mac $(SRCROOT)/../cocos2d-x/external/curl/include/mac $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/auto $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/manual $(SRCROOT)/../cocos2d-x/external/spidermonkey/include/mac $(SRCROOT)/../cocos2d-x/external/spidermonkey/prebuilt/mac";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/cocos/platform/mac $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/cocos/base $(SRCROOT)/../cocos2d-x/cocos/2d $(SRCROOT)/../cocos2d-x/cocos/ui $(SRCROOT)/../cocos2d-x/external/glfw3/include/mac $(SRCROOT)/../cocos2d-x/external/curl/include/mac $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/auto $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/manual $(SRCROOT)/../cocos2d-x/external/spidermonkey/include/mac $(SRCROOT)/../cocos2d-x/external/spidermonkey/prebuilt/mac $(SRCROOT)/../cocos2d-x/extensions/";
 				qq = "";
 			};
 			name = Debug;
@@ -462,7 +462,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/cocosfw-caqnebugarbmzbgeroibisuyojya/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/cocos/platform/mac $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/cocos/base $(SRCROOT)/../cocos2d-x/cocos/2d $(SRCROOT)/../cocos2d-x/cocos/ui $(SRCROOT)/../cocos2d-x/external/glfw3/include/mac $(SRCROOT)/../cocos2d-x/external/curl/include/mac $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/auto $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/manual $(SRCROOT)/../cocos2d-x/external/spidermonkey/include/mac $(SRCROOT)/../cocos2d-x/external/spidermonkey/prebuilt/mac";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ $(SRCROOT)/../cocos2d-x/cocos/platform/mac $(SRCROOT)/../cocos2d-x/cocos $(SRCROOT)/../cocos2d-x/cocos/base $(SRCROOT)/../cocos2d-x/cocos/2d $(SRCROOT)/../cocos2d-x/cocos/ui $(SRCROOT)/../cocos2d-x/external/glfw3/include/mac $(SRCROOT)/../cocos2d-x/external/curl/include/mac $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/auto $(SRCROOT)/../cocos2d-x/cocos/scripting/js-bindings/manual $(SRCROOT)/../cocos2d-x/external/spidermonkey/include/mac $(SRCROOT)/../cocos2d-x/external/spidermonkey/prebuilt/mac $(SRCROOT)/../cocos2d-x/extensions/";
 				qq = "";
 			};
 			name = Release;
