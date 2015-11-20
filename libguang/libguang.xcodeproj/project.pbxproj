@@ -38,6 +38,10 @@
 		D8B475EB1BFDA8E6006A6AE3 /* GUTF8.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B475E91BFDA8E6006A6AE3 /* GUTF8.h */; };
 		D8CA92E41BFD688A00B8A54D /* GResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8CA92E21BFD688A00B8A54D /* GResource.cpp */; };
 		D8CA92E51BFD688A00B8A54D /* GResource.h in Headers */ = {isa = PBXBuildFile; fileRef = D8CA92E31BFD688A00B8A54D /* GResource.h */; };
+		D8D7B1D31BFF24070029FFE9 /* GStartLoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8D7B1D11BFF24070029FFE9 /* GStartLoadScene.cpp */; };
+		D8D7B1D41BFF24070029FFE9 /* GStartLoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8D7B1D11BFF24070029FFE9 /* GStartLoadScene.cpp */; };
+		D8D7B1D51BFF24070029FFE9 /* GStartLoadScene.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D7B1D21BFF24070029FFE9 /* GStartLoadScene.h */; };
+		D8D7B1D61BFF24070029FFE9 /* GStartLoadScene.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D7B1D21BFF24070029FFE9 /* GStartLoadScene.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,8 @@
 		D8B475E91BFDA8E6006A6AE3 /* GUTF8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GUTF8.h; path = tools/GUTF8.h; sourceTree = "<group>"; };
 		D8CA92E21BFD688A00B8A54D /* GResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GResource.cpp; path = data/GResource.cpp; sourceTree = "<group>"; };
 		D8CA92E31BFD688A00B8A54D /* GResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GResource.h; path = data/GResource.h; sourceTree = "<group>"; };
+		D8D7B1D11BFF24070029FFE9 /* GStartLoadScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GStartLoadScene.cpp; path = scene/GStartLoadScene.cpp; sourceTree = "<group>"; };
+		D8D7B1D21BFF24070029FFE9 /* GStartLoadScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GStartLoadScene.h; path = scene/GStartLoadScene.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,8 @@
 			children = (
 				D8011AC01BFDC35B00A820B3 /* GDebugLoadScene.cpp */,
 				D8011AC11BFDC35B00A820B3 /* GDebugLoadScene.h */,
+				D8D7B1D11BFF24070029FFE9 /* GStartLoadScene.cpp */,
+				D8D7B1D21BFF24070029FFE9 /* GStartLoadScene.h */,
 			);
 			name = scene;
 			sourceTree = "<group>";
@@ -173,6 +181,7 @@
 			files = (
 				62AFEF681BFDFEFB00723298 /* GDebugLoadScene.h in Headers */,
 				62AFEF691BFDFEFB00723298 /* GLogger.h in Headers */,
+				D8D7B1D61BFF24070029FFE9 /* GStartLoadScene.h in Headers */,
 				62AFEF6A1BFDFEFB00723298 /* GUTF8.h in Headers */,
 				62AFEF6B1BFDFEFB00723298 /* GResource.h in Headers */,
 				62AFEF6C1BFDFEFB00723298 /* GGameControl.h in Headers */,
@@ -187,6 +196,7 @@
 			files = (
 				D872AFA51BF57FD80087CFFE /* guang.h in Headers */,
 				D8011AC31BFDC35B00A820B3 /* GDebugLoadScene.h in Headers */,
+				D8D7B1D51BFF24070029FFE9 /* GStartLoadScene.h in Headers */,
 				D872AFAB1BF582EA0087CFFE /* GHtttpService.h in Headers */,
 				D8CA92E51BFD688A00B8A54D /* GResource.h in Headers */,
 				D8B475EB1BFDA8E6006A6AE3 /* GUTF8.h in Headers */,
@@ -279,6 +289,7 @@
 				62AFEF5D1BFDFDA300723298 /* GGameControl.cpp in Sources */,
 				62AFEF5E1BFDFDA300723298 /* GHtttpService.cpp in Sources */,
 				62AFEF5F1BFDFDA300723298 /* guang.cpp in Sources */,
+				D8D7B1D41BFF24070029FFE9 /* GStartLoadScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +304,7 @@
 				D8011AC21BFDC35B00A820B3 /* GDebugLoadScene.cpp in Sources */,
 				D872AFA41BF57FD80087CFFE /* guang.cpp in Sources */,
 				D8B475E61BFD807B006A6AE3 /* GLogger.cpp in Sources */,
+				D8D7B1D31BFF24070029FFE9 /* GStartLoadScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
