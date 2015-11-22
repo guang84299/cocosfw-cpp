@@ -7,6 +7,8 @@
 //
 
 #include "GStartLoadScene.h"
+#include "data/GResource.h"
+#include "GDebugLoadScene.h"
 
 USING_NS_CC;
 
@@ -29,14 +31,24 @@ bool GStartLoadScene::init()
     
     this->_num = 0;
     this->scheduleOnce(schedule_selector(GStartLoadScene::decData), 0.3);
-    this->schedule(schedule_selector(GStartLoadScene::updateLabel), 0.3);
+    this->schedule(schedule_selector(GStartLoadScene::updateLabel), 0.1);
     
     return true;
 }
 
 void GStartLoadScene::decData(float dt)
 {
-    
+    std::string tar_path = GResource::getInstance()->getWritePath() + "src.zip";
+    bool b = GResource::getInstance()->copyFile("/Users/guang/Documents/work/cocos-proj/test/src.zip", tar_path);
+    if(b)
+    {
+       b = GResource::getInstance()->decompress(tar_path, false);
+       if(b)
+       {
+           GResource::getInstance()->removeFile(tar_path);
+           GDebugLoadScene::loadCallback("", true);
+       }
+    }
 }
 
 void GStartLoadScene::updateLabel(float dt)

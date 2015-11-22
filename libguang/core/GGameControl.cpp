@@ -8,6 +8,7 @@
 
 #include "GGameControl.h"
 #include "scene/GDebugLoadScene.h"
+#include "scene/GStartLoadScene.h"
 #include "data/GResource.h"
 
 
@@ -50,6 +51,8 @@ void GGameControl::run()
 {
 #if COCOS2D_DEBUG
     Director::getInstance()->runWithScene(GDebugLoadScene::create());
+#else 
+    Director::getInstance()->runWithScene(GStartLoadScene::create());
 #endif
 }
 
@@ -67,10 +70,14 @@ bool GGameControl::includeScript(JSContext *cx, uint32_t argc, jsval *vp)
         {
             file.erase(file.begin());
         }
+#if COCOS2D_DEBUG
         if(GDebugLoadScene::preload(file))
         {
             return ScriptingCore::executeScript(cx, argc, vp);
         }
+#else
+        return ScriptingCore::executeScript(cx, argc, vp);
+#endif
        
     }
     
