@@ -3,7 +3,7 @@
 //  libguang
 //
 //  Created by ChunGuang Yan on 15/11/17.
-//  Copyright © 2015年 xindong. All rights reserved.
+//  Copyright © 2015年 guang. All rights reserved.
 //
 
 #ifndef GGameControl_h

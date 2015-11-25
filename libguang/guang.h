@@ -3,7 +3,7 @@
 //  libguang
 //
 //  Created by ChunGuang Yan on 15/11/13.
-//  Copyright (c) 2015年 xindong. All rights reserved.
+//  Copyright (c) 2015年 guang. All rights reserved.
 //
 
 #ifndef __libguang__guang__
@@ -13,6 +13,9 @@
 
 #include "net/GHtttpService.h"
 
+#include "scene/GScene.h"
+#include "scene/GStartLoadScene.h"
+#include "scene/GDebugLoadScene.h"
 
 #include "core/GGameControl.h"
 
