@@ -23,5 +23,12 @@
 
 #include "tools/GUTF8.h"
 #include "tools/GLogger.h"
+#include "tools/GDeviceInfo.h"
+
+#ifdef ANDROID
+#include "platform/GDeviceInfoAndroid.h"
+#else
+#include "platform/GDeviceInfoIOS.h"
+#endif
 
 #endif /* defined(__libguang__guang__) */

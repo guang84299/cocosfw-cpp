@@ -36,6 +36,18 @@
 		D872AFA51BF57FD80087CFFE /* guang.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA31BF57FD80087CFFE /* guang.h */; };
 		D872AFAA1BF582EA0087CFFE /* GHtttpService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D872AFA81BF582EA0087CFFE /* GHtttpService.cpp */; };
 		D872AFAB1BF582EA0087CFFE /* GHtttpService.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA91BF582EA0087CFFE /* GHtttpService.h */; };
+		D89D5EB41C06AE4100539D68 /* GDeviceInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D89D5EB21C06AE4100539D68 /* GDeviceInfo.cpp */; };
+		D89D5EB51C06AE4100539D68 /* GDeviceInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D89D5EB21C06AE4100539D68 /* GDeviceInfo.cpp */; };
+		D89D5EB61C06AE4100539D68 /* GDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = D89D5EB31C06AE4100539D68 /* GDeviceInfo.h */; };
+		D89D5EB71C06AE4100539D68 /* GDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = D89D5EB31C06AE4100539D68 /* GDeviceInfo.h */; };
+		D89D5EBD1C06D8AF00539D68 /* GDeviceInfoAndroid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D89D5EBB1C06D8AF00539D68 /* GDeviceInfoAndroid.cpp */; };
+		D89D5EBE1C06D8AF00539D68 /* GDeviceInfoAndroid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D89D5EBB1C06D8AF00539D68 /* GDeviceInfoAndroid.cpp */; };
+		D89D5EBF1C06D8AF00539D68 /* GDeviceInfoAndroid.h in Headers */ = {isa = PBXBuildFile; fileRef = D89D5EBC1C06D8AF00539D68 /* GDeviceInfoAndroid.h */; };
+		D89D5EC01C06D8AF00539D68 /* GDeviceInfoAndroid.h in Headers */ = {isa = PBXBuildFile; fileRef = D89D5EBC1C06D8AF00539D68 /* GDeviceInfoAndroid.h */; };
+		D89D5EC41C06E34800539D68 /* GDeviceInfoIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = D89D5EC21C06E34800539D68 /* GDeviceInfoIOS.mm */; };
+		D89D5EC51C06E34800539D68 /* GDeviceInfoIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = D89D5EC21C06E34800539D68 /* GDeviceInfoIOS.mm */; };
+		D89D5EC61C06E34800539D68 /* GDeviceInfoIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D89D5EC31C06E34800539D68 /* GDeviceInfoIOS.h */; };
+		D89D5EC71C06E34800539D68 /* GDeviceInfoIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D89D5EC31C06E34800539D68 /* GDeviceInfoIOS.h */; };
 		D8B475E61BFD807B006A6AE3 /* GLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8B475E41BFD807B006A6AE3 /* GLogger.cpp */; };
 		D8B475E71BFD807B006A6AE3 /* GLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B475E51BFD807B006A6AE3 /* GLogger.h */; };
 		D8B475EA1BFDA8E6006A6AE3 /* GUTF8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8B475E81BFDA8E6006A6AE3 /* GUTF8.cpp */; };
@@ -64,6 +76,12 @@
 		D872AFA31BF57FD80087CFFE /* guang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guang.h; sourceTree = "<group>"; };
 		D872AFA81BF582EA0087CFFE /* GHtttpService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHtttpService.cpp; path = net/GHtttpService.cpp; sourceTree = "<group>"; };
 		D872AFA91BF582EA0087CFFE /* GHtttpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHtttpService.h; path = net/GHtttpService.h; sourceTree = "<group>"; };
+		D89D5EB21C06AE4100539D68 /* GDeviceInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GDeviceInfo.cpp; path = tools/GDeviceInfo.cpp; sourceTree = "<group>"; };
+		D89D5EB31C06AE4100539D68 /* GDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDeviceInfo.h; path = tools/GDeviceInfo.h; sourceTree = "<group>"; };
+		D89D5EBB1C06D8AF00539D68 /* GDeviceInfoAndroid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GDeviceInfoAndroid.cpp; path = platform/GDeviceInfoAndroid.cpp; sourceTree = "<group>"; };
+		D89D5EBC1C06D8AF00539D68 /* GDeviceInfoAndroid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDeviceInfoAndroid.h; path = platform/GDeviceInfoAndroid.h; sourceTree = "<group>"; };
+		D89D5EC21C06E34800539D68 /* GDeviceInfoIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GDeviceInfoIOS.mm; path = platform/GDeviceInfoIOS.mm; sourceTree = "<group>"; };
+		D89D5EC31C06E34800539D68 /* GDeviceInfoIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDeviceInfoIOS.h; path = platform/GDeviceInfoIOS.h; sourceTree = "<group>"; };
 		D8B475E41BFD807B006A6AE3 /* GLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLogger.cpp; path = tools/GLogger.cpp; sourceTree = "<group>"; };
 		D8B475E51BFD807B006A6AE3 /* GLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLogger.h; path = tools/GLogger.h; sourceTree = "<group>"; };
 		D8B475E81BFDA8E6006A6AE3 /* GUTF8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GUTF8.cpp; path = tools/GUTF8.cpp; sourceTree = "<group>"; };
@@ -135,10 +153,11 @@
 				D8CA92E61BFD68A700B8A54D /* data */,
 				62CB3DAD1BFB50FB00CFD686 /* core */,
 				D872AFAC1BF582F00087CFFE /* net */,
-				D872AFA21BF57FD80087CFFE /* guang.cpp */,
-				D872AFA31BF57FD80087CFFE /* guang.h */,
+				D89D5EC11C06D8C400539D68 /* platform */,
 				62AFEFB61BFE27CA00723298 /* libs */,
 				D872AF961BF57FBB0087CFFE /* Products */,
+				D872AFA21BF57FD80087CFFE /* guang.cpp */,
+				D872AFA31BF57FD80087CFFE /* guang.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,6 +179,17 @@
 			name = net;
 			sourceTree = "<group>";
 		};
+		D89D5EC11C06D8C400539D68 /* platform */ = {
+			isa = PBXGroup;
+			children = (
+				D89D5EBB1C06D8AF00539D68 /* GDeviceInfoAndroid.cpp */,
+				D89D5EBC1C06D8AF00539D68 /* GDeviceInfoAndroid.h */,
+				D89D5EC21C06E34800539D68 /* GDeviceInfoIOS.mm */,
+				D89D5EC31C06E34800539D68 /* GDeviceInfoIOS.h */,
+			);
+			name = platform;
+			sourceTree = "<group>";
+		};
 		D8CA92E61BFD68A700B8A54D /* data */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +206,8 @@
 				D8B475E51BFD807B006A6AE3 /* GLogger.h */,
 				D8B475E81BFDA8E6006A6AE3 /* GUTF8.cpp */,
 				D8B475E91BFDA8E6006A6AE3 /* GUTF8.h */,
+				D89D5EB21C06AE4100539D68 /* GDeviceInfo.cpp */,
+				D89D5EB31C06AE4100539D68 /* GDeviceInfo.h */,
 			);
 			name = tools;
 			sourceTree = "<group>";
@@ -187,9 +219,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D89D5EB71C06AE4100539D68 /* GDeviceInfo.h in Headers */,
 				62AFEF681BFDFEFB00723298 /* GDebugLoadScene.h in Headers */,
 				62AFEF691BFDFEFB00723298 /* GLogger.h in Headers */,
 				D8D7B1D61BFF24070029FFE9 /* GStartLoadScene.h in Headers */,
+				D89D5EC71C06E34800539D68 /* GDeviceInfoIOS.h in Headers */,
+				D89D5EC01C06D8AF00539D68 /* GDeviceInfoAndroid.h in Headers */,
 				62AFEF6A1BFDFEFB00723298 /* GUTF8.h in Headers */,
 				62B1939F1C05F4E8003D8E59 /* GScene.h in Headers */,
 				62AFEF6B1BFDFEFB00723298 /* GResource.h in Headers */,
@@ -203,9 +238,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D89D5EB61C06AE4100539D68 /* GDeviceInfo.h in Headers */,
 				D872AFA51BF57FD80087CFFE /* guang.h in Headers */,
 				D8011AC31BFDC35B00A820B3 /* GDebugLoadScene.h in Headers */,
 				D8D7B1D51BFF24070029FFE9 /* GStartLoadScene.h in Headers */,
+				D89D5EC61C06E34800539D68 /* GDeviceInfoIOS.h in Headers */,
+				D89D5EBF1C06D8AF00539D68 /* GDeviceInfoAndroid.h in Headers */,
 				D872AFAB1BF582EA0087CFFE /* GHtttpService.h in Headers */,
 				62B1939E1C05F4E8003D8E59 /* GScene.h in Headers */,
 				D8CA92E51BFD688A00B8A54D /* GResource.h in Headers */,
@@ -293,13 +331,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				62AFEF591BFDFDA300723298 /* GDebugLoadScene.cpp in Sources */,
+				D89D5EC51C06E34800539D68 /* GDeviceInfoIOS.mm in Sources */,
 				62AFEF5A1BFDFDA300723298 /* GLogger.cpp in Sources */,
 				62AFEF5B1BFDFDA300723298 /* GUTF8.cpp in Sources */,
+				D89D5EB51C06AE4100539D68 /* GDeviceInfo.cpp in Sources */,
 				62AFEF5C1BFDFDA300723298 /* GResource.cpp in Sources */,
 				62B1939D1C05F4E8003D8E59 /* GScene.cpp in Sources */,
 				62AFEF5D1BFDFDA300723298 /* GGameControl.cpp in Sources */,
 				62AFEF5E1BFDFDA300723298 /* GHtttpService.cpp in Sources */,
 				62AFEF5F1BFDFDA300723298 /* guang.cpp in Sources */,
+				D89D5EBE1C06D8AF00539D68 /* GDeviceInfoAndroid.cpp in Sources */,
 				D8D7B1D41BFF24070029FFE9 /* GStartLoadScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,13 +350,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D872AFAA1BF582EA0087CFFE /* GHtttpService.cpp in Sources */,
+				D89D5EC41C06E34800539D68 /* GDeviceInfoIOS.mm in Sources */,
 				D8CA92E41BFD688A00B8A54D /* GResource.cpp in Sources */,
 				D8B475EA1BFDA8E6006A6AE3 /* GUTF8.cpp in Sources */,
+				D89D5EB41C06AE4100539D68 /* GDeviceInfo.cpp in Sources */,
 				62CB3DB01BFB517100CFD686 /* GGameControl.cpp in Sources */,
 				62B1939C1C05F4E8003D8E59 /* GScene.cpp in Sources */,
 				D8011AC21BFDC35B00A820B3 /* GDebugLoadScene.cpp in Sources */,
 				D872AFA41BF57FD80087CFFE /* guang.cpp in Sources */,
 				D8B475E61BFD807B006A6AE3 /* GLogger.cpp in Sources */,
+				D89D5EBD1C06D8AF00539D68 /* GDeviceInfoAndroid.cpp in Sources */,
 				D8D7B1D31BFF24070029FFE9 /* GStartLoadScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,7 +418,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -417,7 +461,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;

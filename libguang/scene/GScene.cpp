@@ -8,9 +8,13 @@
 
 #include "GScene.h"
 
+USING_NS_CC;
 
 bool GScene::init()
 {
+    auto dir = Director::getInstance();
+    bool display = dir->isDisplayStats();
+    dir->setDisplayStats(false);
     
     return true;
 }

@@ -375,3 +375,115 @@ bool GResource::decryption(char* bytes,int len)
         bytes[i] ^= table[i % 256];
     return true;
 }
+
+cocos2d::Data GResource::read_file(const std::string &path, uint32_t offset, uint32_t length)
+{
+    if (!offset && !length)
+    {
+        return cocos2d::FileUtils::getInstance()->getDataFromFile(path);
+    }
+    else
+    {
+        cocos2d::Data data;
+        
+        FILE *file = fopen(path.c_str(), "rb");
+        
+        if (!file)
+        {
+            GLogE("read file open fail: %s", path.c_str());
+            return cocos2d::Data();
+        }
+        
+        if (!length)
+        {
+            fseek(file, 0, SEEK_END);
+            length = (uint32_t)ftell(file);
+        }
+        
+        if (length)
+        {
+            fseek(file, offset, SEEK_SET);
+            
+            uint8_t *buffer = new uint8_t[length];
+            
+            if (!buffer)
+            {
+                GLogE("read file alloc error: %s, %d", path.c_str(), length);
+            }
+            else
+            {
+                auto size = fread(buffer, 1, length, file);
+                
+                if (size != length)
+                {
+                    GLogE("read file read error: %s, %d, %d", path.c_str(), length, size);
+                }
+                else
+                {
+                    data.fastSet(buffer, length);
+                }
+            }
+        }
+        
+        fclose(file);
+        
+        return data;
+    }
+}
+
+bool GResource::write_file(const std::string &path, const uint8_t *data, uint32_t size)
+{
+    // create
+    FileUtils::getInstance()->createDirectory(GResource::getInstance()->baseDir(path));
+    
+    // open
+    FILE *file = fopen(path.c_str(), "wb");
+    
+    if (!file)
+    {
+        GLogE("resource write file open fail: %s", path.c_str());
+        return false;
+    }
+    
+    // write
+    if (fwrite(data, 1, size, file) != size)
+    {
+        fclose(file);
+        FileUtils::getInstance()->removeFile(path.c_str());
+        GLogE("resource write file write fail: %s", path.c_str());
+        return false;
+    }
+    else
+    {
+        fclose(file);
+    }
+    
+    return true;
+}
+
+bool GResource::append_file(const std::string &path, const uint8_t *data, uint32_t size)
+{
+    // open
+    FILE *file = fopen(path.c_str(), "ab");
+    
+    if (!file)
+    {
+        GLogE("resource append file open fail: %s", path.c_str());
+        return false;
+    }
+    
+    // write
+    if (fwrite(data, 1, size, file) != size)
+    {
+        fclose(file);
+        FileUtils::getInstance()->removeFile(path.c_str());
+        GLogE("resource append file write fail: %s", path.c_str());
+        return false;
+    }
+    else
+    {
+        fclose(file);
+    }
+    
+    return true;
+}

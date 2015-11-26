@@ -419,7 +419,8 @@ def build_android(ndk_build_param,build_mode):
                                                               convert_path_to_cmd(ANDROID_SDK_ROOT))
         Log.purple(command)
         _run_cmd(command)
-        #jarsigner -verbose -keystore androidguy-release.keystore ch02_showdatetime.apk androidguy
+        # command = "jarsigner -verbose -keystore guang.keystore -signedjar %s %s guang" % (ANDROID_ROOT+'/bin/test.apk',ANDROID_ROOT+'/bin/test-release-unsigned.apk')
+        # _run_cmd(command)
 
 
 opts, args = getopt.getopt(sys.argv[1:], "-p:-m:")
