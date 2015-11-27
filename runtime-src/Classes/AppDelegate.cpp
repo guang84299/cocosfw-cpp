@@ -44,6 +44,7 @@
 #endif
 
 #include "guang.h"
+#include "js-bindings/auto/jsb_libguang_auto.hpp"
 
 USING_NS_CC;
 using namespace CocosDenshion;
@@ -153,7 +154,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
     sc->addRegisterCallback(JavaScriptObjCBridge::_js_register);
 #endif
-    
+    sc->addRegisterCallback(register_all_libguang);
     GGameControl::getInstance()->run();
     
     return true;

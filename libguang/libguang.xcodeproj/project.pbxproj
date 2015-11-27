@@ -32,6 +32,9 @@
 		62CB3DB11BFB517100CFD686 /* GGameControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CB3DAF1BFB517100CFD686 /* GGameControl.h */; };
 		D8011AC21BFDC35B00A820B3 /* GDebugLoadScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8011AC01BFDC35B00A820B3 /* GDebugLoadScene.cpp */; };
 		D8011AC31BFDC35B00A820B3 /* GDebugLoadScene.h in Headers */ = {isa = PBXBuildFile; fileRef = D8011AC11BFDC35B00A820B3 /* GDebugLoadScene.h */; };
+		D810A6E91C0855AA00850759 /* jsb_libguang_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D810A6E71C0855AA00850759 /* jsb_libguang_auto.cpp */; };
+		D810A6EA1C0855AA00850759 /* jsb_libguang_auto.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D810A6E81C0855AA00850759 /* jsb_libguang_auto.hpp */; };
+		D810A6EC1C0855BA00850759 /* jsb_libguang_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D810A6E71C0855AA00850759 /* jsb_libguang_auto.cpp */; };
 		D872AFA41BF57FD80087CFFE /* guang.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D872AFA21BF57FD80087CFFE /* guang.cpp */; };
 		D872AFA51BF57FD80087CFFE /* guang.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA31BF57FD80087CFFE /* guang.h */; };
 		D872AFAA1BF582EA0087CFFE /* GHtttpService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D872AFA81BF582EA0087CFFE /* GHtttpService.cpp */; };
@@ -71,6 +74,8 @@
 		62CB3DAF1BFB517100CFD686 /* GGameControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGameControl.h; path = core/GGameControl.h; sourceTree = "<group>"; };
 		D8011AC01BFDC35B00A820B3 /* GDebugLoadScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GDebugLoadScene.cpp; path = scene/GDebugLoadScene.cpp; sourceTree = "<group>"; };
 		D8011AC11BFDC35B00A820B3 /* GDebugLoadScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDebugLoadScene.h; path = scene/GDebugLoadScene.h; sourceTree = "<group>"; };
+		D810A6E71C0855AA00850759 /* jsb_libguang_auto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = jsb_libguang_auto.cpp; path = "js-bindings/auto/jsb_libguang_auto.cpp"; sourceTree = "<group>"; };
+		D810A6E81C0855AA00850759 /* jsb_libguang_auto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = jsb_libguang_auto.hpp; path = "js-bindings/auto/jsb_libguang_auto.hpp"; sourceTree = "<group>"; };
 		D872AF951BF57FBB0087CFFE /* libguang mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libguang mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D872AFA21BF57FD80087CFFE /* guang.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guang.cpp; sourceTree = "<group>"; };
 		D872AFA31BF57FD80087CFFE /* guang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guang.h; sourceTree = "<group>"; };
@@ -145,9 +150,27 @@
 			name = scene;
 			sourceTree = "<group>";
 		};
+		D810A6E51C08558900850759 /* js-bindings */ = {
+			isa = PBXGroup;
+			children = (
+				D810A6E61C08559900850759 /* auto */,
+			);
+			name = "js-bindings";
+			sourceTree = "<group>";
+		};
+		D810A6E61C08559900850759 /* auto */ = {
+			isa = PBXGroup;
+			children = (
+				D810A6E71C0855AA00850759 /* jsb_libguang_auto.cpp */,
+				D810A6E81C0855AA00850759 /* jsb_libguang_auto.hpp */,
+			);
+			name = auto;
+			sourceTree = "<group>";
+		};
 		D872AF8C1BF57FBB0087CFFE = {
 			isa = PBXGroup;
 			children = (
+				D810A6E51C08558900850759 /* js-bindings */,
 				D8011AC41BFDC36200A820B3 /* scene */,
 				D8CA92EF1BFD7B4100B8A54D /* tools */,
 				D8CA92E61BFD68A700B8A54D /* data */,
@@ -249,6 +272,7 @@
 				D8CA92E51BFD688A00B8A54D /* GResource.h in Headers */,
 				D8B475EB1BFDA8E6006A6AE3 /* GUTF8.h in Headers */,
 				D8B475E71BFD807B006A6AE3 /* GLogger.h in Headers */,
+				D810A6EA1C0855AA00850759 /* jsb_libguang_auto.hpp in Headers */,
 				62CB3DB11BFB517100CFD686 /* GGameControl.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62AFEF591BFDFDA300723298 /* GDebugLoadScene.cpp in Sources */,
+				D810A6EC1C0855BA00850759 /* jsb_libguang_auto.cpp in Sources */,
 				D89D5EC51C06E34800539D68 /* GDeviceInfoIOS.mm in Sources */,
 				62AFEF5A1BFDFDA300723298 /* GLogger.cpp in Sources */,
 				62AFEF5B1BFDFDA300723298 /* GUTF8.cpp in Sources */,
@@ -350,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D872AFAA1BF582EA0087CFFE /* GHtttpService.cpp in Sources */,
+				D810A6E91C0855AA00850759 /* jsb_libguang_auto.cpp in Sources */,
 				D89D5EC41C06E34800539D68 /* GDeviceInfoIOS.mm in Sources */,
 				D8CA92E41BFD688A00B8A54D /* GResource.cpp in Sources */,
 				D8B475EA1BFDA8E6006A6AE3 /* GUTF8.cpp in Sources */,
