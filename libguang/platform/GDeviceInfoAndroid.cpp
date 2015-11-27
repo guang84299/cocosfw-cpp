@@ -279,7 +279,7 @@ void GDeviceInfoAndroid::keyboard_close()
 
 
 // ------------------------------------------------------------------
-// 获取JS、PIShell、Resource的版本号
+// 获取版本号
 extern "C"
 {
     JNIEXPORT int JNICALL Java_com_guang_libguangjni_GDeviceInfoAndroid_nativeVersionJS(JNIEnv *env, jobject thiz)

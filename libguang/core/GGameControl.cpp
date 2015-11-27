@@ -10,7 +10,7 @@
 #include "scene/GDebugLoadScene.h"
 #include "scene/GStartLoadScene.h"
 #include "data/GResource.h"
-
+#include "ScriptingCore.h"
 
 USING_NS_CC;
 

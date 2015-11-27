@@ -10,7 +10,8 @@
 #define GGameControl_h
 
 #include "cocos2d.h"
-#include "ScriptingCore.h"
+#include "jsapi.h"
+
 
 class GGameControl 
 {
