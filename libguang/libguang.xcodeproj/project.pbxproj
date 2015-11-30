@@ -39,6 +39,7 @@
 		D872AFA51BF57FD80087CFFE /* guang.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA31BF57FD80087CFFE /* guang.h */; };
 		D872AFAA1BF582EA0087CFFE /* GHtttpService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D872AFA81BF582EA0087CFFE /* GHtttpService.cpp */; };
 		D872AFAB1BF582EA0087CFFE /* GHtttpService.h in Headers */ = {isa = PBXBuildFile; fileRef = D872AFA91BF582EA0087CFFE /* GHtttpService.h */; };
+		D89513811C0BF8CE00135ED3 /* jsb_libguang_auto.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D810A6E81C0855AA00850759 /* jsb_libguang_auto.hpp */; };
 		D89D5EB41C06AE4100539D68 /* GDeviceInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D89D5EB21C06AE4100539D68 /* GDeviceInfo.cpp */; };
 		D89D5EB51C06AE4100539D68 /* GDeviceInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D89D5EB21C06AE4100539D68 /* GDeviceInfo.cpp */; };
 		D89D5EB61C06AE4100539D68 /* GDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = D89D5EB31C06AE4100539D68 /* GDeviceInfo.h */; };
@@ -242,6 +243,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D89513811C0BF8CE00135ED3 /* jsb_libguang_auto.hpp in Headers */,
 				D89D5EB71C06AE4100539D68 /* GDeviceInfo.h in Headers */,
 				62AFEF681BFDFEFB00723298 /* GDebugLoadScene.h in Headers */,
 				62AFEF691BFDFEFB00723298 /* GLogger.h in Headers */,

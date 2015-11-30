@@ -64,25 +64,23 @@ bool js_libguang_GResource_constructor(JSContext *cx, uint32_t argc, jsval *vp);
 void js_libguang_GResource_finalize(JSContext *cx, JSObject *obj);
 void js_register_libguang_GResource(JSContext *cx, JS::HandleObject global);
 void register_all_libguang(JSContext* cx, JS::HandleObject obj);
-bool js_libguang_GResource_copyFile(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_libguang_GResource_getCachePath(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GResource_decryption(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_libguang_GResource_getWritePath(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_libguang_GResource_getWriteResPath(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GResource_decompress(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GResource_removeFile(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_libguang_GResource_getResUrl(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_libguang_GResource_getCodeUrl(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GResource_baseDir(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_libguang_GResource_createDirForUrlFile(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GResource_baseFileName(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_libguang_GResource_getWriteCodePath(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GResource_isFile(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_libguang_GResource_getTempPath(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GResource_write_file(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GResource_append_file(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GResource_read_file(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_libguang_GResource_copyFile(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_libguang_GResource_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_libguang_GResource_decryption(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_libguang_GResource_append_file(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_libguang_GResource_baseDir(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_libguang_GResource_decompress(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_libguang_GResource_removeFile(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_libguang_GResource_baseFileName(JSContext *cx, uint32_t argc, jsval *vp);
+bool js_libguang_GResource_isFile(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_GUTF8_class;
 extern JSObject *jsb_GUTF8_prototype;
@@ -137,28 +135,5 @@ bool js_libguang_GDeviceInfo_os_is_html5(JSContext *cx, uint32_t argc, jsval *vp
 bool js_libguang_GDeviceInfo_keyboard_close(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_libguang_GDeviceInfo_keep_awake(JSContext *cx, uint32_t argc, jsval *vp);
 bool js_libguang_GDeviceInfo_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
-
-extern JSClass  *jsb_GDeviceInfoAndroid_class;
-extern JSObject *jsb_GDeviceInfoAndroid_prototype;
-
-bool js_libguang_GDeviceInfoAndroid_constructor(JSContext *cx, uint32_t argc, jsval *vp);
-void js_libguang_GDeviceInfoAndroid_finalize(JSContext *cx, JSObject *obj);
-void js_register_libguang_GDeviceInfoAndroid(JSContext *cx, JS::HandleObject global);
-void register_all_libguang(JSContext* cx, JS::HandleObject obj);
-bool js_libguang_GDeviceInfoAndroid_memory_used(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GDeviceInfoAndroid_cpu_usage(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GDeviceInfoAndroid_memory_free(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GDeviceInfoAndroid_keyboard_close(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GDeviceInfoAndroid_browser_useragent(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GDeviceInfoAndroid_isSDEnable(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GDeviceInfoAndroid_vibrate(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GDeviceInfoAndroid_getSDPath(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GDeviceInfoAndroid_device_telecom(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GDeviceInfoAndroid_device_network(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GDeviceInfoAndroid_keep_awake(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GDeviceInfoAndroid_open_browser(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GDeviceInfoAndroid_device_hardware(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GDeviceInfoAndroid_keyboard_exist(JSContext *cx, uint32_t argc, jsval *vp);
-bool js_libguang_GDeviceInfoAndroid_getInstance(JSContext *cx, uint32_t argc, jsval *vp);
 
 #endif // __libguang_h__

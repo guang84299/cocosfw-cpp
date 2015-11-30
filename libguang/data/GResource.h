@@ -32,19 +32,19 @@ public:
     //根据下载文件创建文件夹
     bool createDirForUrlFile(std::string file,bool isCode);
     //返回一个文件的根目录
-    std::string baseDir(std::string file);
+    static std::string baseDir(std::string file);
     //返回一个文件的文件名
-    std::string baseFileName(std::string file);
+    static std::string baseFileName(std::string file);
     //判断一个字符串是否为文件
-    bool isFile(std::string path);
+    static bool isFile(std::string path);
     //拷贝一个文件
-    bool copyFile(std::string file, std::string target);
+    static bool copyFile(std::string file, std::string target);
     //删除
-    bool removeFile(std::string file);
+    static bool removeFile(std::string file);
     //解压
-    bool decompress(std::string zip, bool isDecryption);
+    static bool decompress(std::string zip, bool isDecryption);
     //解密
-    bool decryption(char* bytes,int len);
+    static bool decryption(const char* bytes,int len);
     // 读取、写入磁盘
     static cocos2d::Data read_file(const std::string &path, uint32_t offset = 0, uint32_t length = 0);
     static bool write_file(const std::string &path, const uint8_t *data, uint32_t size);

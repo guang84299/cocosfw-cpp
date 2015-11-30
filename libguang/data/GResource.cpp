@@ -162,15 +162,15 @@ bool GResource::copyFile(std::string file, std::string target)
     }
     std::string dir = "";
     std::string tarFile = "";
-    if(this->isFile(target))
+    if(GResource::isFile(target))
     {
-        dir = this->baseDir(target);
-        tarFile = this->baseFileName(target);
+        dir = GResource::baseDir(target);
+        tarFile = GResource::baseFileName(target);
     }
     else
     {
         dir = target;
-        tarFile = this->baseFileName(file);
+        tarFile = GResource::baseFileName(file);
     }
     
     if(!ft->isDirectoryExist(dir))
@@ -274,7 +274,7 @@ bool GResource::decompress(std::string zip, bool isDecryption)
         {
             //There are not directory entry in some case.
             //So we need to create directory when decompressing file entry
-            if ( !FileUtils::getInstance()->createDirectory(this->baseDir(fullPath)) )
+            if ( !FileUtils::getInstance()->createDirectory(GResource::baseDir(fullPath)) )
             {
                 // Failed to create directory
                 CCLOG("GResource : can not create directory %s\n", fullPath.c_str());
@@ -320,7 +320,7 @@ bool GResource::decompress(std::string zip, bool isDecryption)
                 if (error > 0)
                 {
                     if(isDecryption)
-                    this->decryption(readBuffer,error);
+                        GResource::decryption(readBuffer,error);
                     fwrite(readBuffer, error, 1, out);
                 }
             } while(error > 0);
@@ -346,7 +346,7 @@ bool GResource::decompress(std::string zip, bool isDecryption)
     return true;
 }
 
-bool GResource::decryption(char* bytes,int len)
+bool GResource::decryption(const char* bytes,int len)
 {
     // 解密
     // [0-9a-f][0-9a-f]
@@ -369,29 +369,28 @@ bool GResource::decryption(char* bytes,int len)
         0xdb, 0x89, 0x2c, 0x7b, 0x5a, 0x6f, 0x33, 0xf6, 0x36, 0xb8, 0x21, 0x77, 0x88, 0x55, 0x0c, 0x67,
         0x22, 0xf4, 0x59, 0x80, 0x21, 0x4a, 0x51, 0x58, 0xe6, 0xd0, 0x4e, 0x69, 0xf4, 0xb7, 0x87, 0xbe,
     };
-    
-    
+    char* data = (char*)bytes;
     for (auto i = 0; i < len; ++i)
-        bytes[i] ^= table[i % 256];
+        data[i] ^= table[i % 256];
     return true;
 }
 
-cocos2d::Data GResource::read_file(const std::string &path, uint32_t offset, uint32_t length)
+Data GResource::read_file(const std::string &path, uint32_t offset, uint32_t length)
 {
     if (!offset && !length)
     {
-        return cocos2d::FileUtils::getInstance()->getDataFromFile(path);
+        return FileUtils::getInstance()->getDataFromFile(path);
     }
     else
     {
-        cocos2d::Data data;
+        Data data;
         
         FILE *file = fopen(path.c_str(), "rb");
         
         if (!file)
         {
             GLogE("read file open fail: %s", path.c_str());
-            return cocos2d::Data();
+            return Data();
         }
         
         if (!length)

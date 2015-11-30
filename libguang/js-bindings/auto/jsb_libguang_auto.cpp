@@ -200,7 +200,7 @@ void js_register_libguang_GHtttpService(JSContext *cx, JS::HandleObject global) 
         cx, global,
         JS::NullPtr(), // parent proto
         jsb_GHtttpService_class,
-        dummy_constructor<GHtttpService>, 0, // no constructor
+        empty_constructor, 0,
         properties,
         funcs,
         NULL, // no static properties
@@ -700,7 +700,7 @@ void js_register_libguang_GGameControl(JSContext *cx, JS::HandleObject global) {
         cx, global,
         JS::NullPtr(), // parent proto
         jsb_GGameControl_class,
-        dummy_constructor<GGameControl>, 0, // no constructor
+        empty_constructor, 0,
         properties,
         funcs,
         NULL, // no static properties
@@ -727,30 +727,6 @@ void js_register_libguang_GGameControl(JSContext *cx, JS::HandleObject global) {
 JSClass  *jsb_GResource_class;
 JSObject *jsb_GResource_prototype;
 
-bool js_libguang_GResource_copyFile(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GResource* cobj = (GResource *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GResource_copyFile : Invalid Native Object");
-    if (argc == 2) {
-        std::string arg0;
-        std::string arg1;
-        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-        ok &= jsval_to_std_string(cx, args.get(1), &arg1);
-        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_copyFile : Error processing arguments");
-        bool ret = cobj->copyFile(arg0, arg1);
-        jsval jsret = JSVAL_NULL;
-        jsret = BOOLEAN_TO_JSVAL(ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GResource_copyFile : wrong number of arguments: %d, was expecting %d", argc, 2);
-    return false;
-}
 bool js_libguang_GResource_getCachePath(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -767,30 +743,6 @@ bool js_libguang_GResource_getCachePath(JSContext *cx, uint32_t argc, jsval *vp)
     }
 
     JS_ReportError(cx, "js_libguang_GResource_getCachePath : wrong number of arguments: %d, was expecting %d", argc, 0);
-    return false;
-}
-bool js_libguang_GResource_decryption(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GResource* cobj = (GResource *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GResource_decryption : Invalid Native Object");
-    if (argc == 2) {
-        char* arg0 = nullptr;
-        int arg1 = 0;
-        std::string arg0_tmp; ok &= jsval_to_std_string(cx, args.get(0), &arg0_tmp); arg0 = arg0_tmp.c_str();
-        ok &= jsval_to_int32(cx, args.get(1), (int32_t *)&arg1);
-        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_decryption : Error processing arguments");
-        bool ret = cobj->decryption(arg0, arg1);
-        jsval jsret = JSVAL_NULL;
-        jsret = BOOLEAN_TO_JSVAL(ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GResource_decryption : wrong number of arguments: %d, was expecting %d", argc, 2);
     return false;
 }
 bool js_libguang_GResource_getWritePath(JSContext *cx, uint32_t argc, jsval *vp)
@@ -829,52 +781,6 @@ bool js_libguang_GResource_getWriteResPath(JSContext *cx, uint32_t argc, jsval *
     JS_ReportError(cx, "js_libguang_GResource_getWriteResPath : wrong number of arguments: %d, was expecting %d", argc, 0);
     return false;
 }
-bool js_libguang_GResource_decompress(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GResource* cobj = (GResource *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GResource_decompress : Invalid Native Object");
-    if (argc == 2) {
-        std::string arg0;
-        bool arg1;
-        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-        arg1 = JS::ToBoolean(args.get(1));
-        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_decompress : Error processing arguments");
-        bool ret = cobj->decompress(arg0, arg1);
-        jsval jsret = JSVAL_NULL;
-        jsret = BOOLEAN_TO_JSVAL(ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GResource_decompress : wrong number of arguments: %d, was expecting %d", argc, 2);
-    return false;
-}
-bool js_libguang_GResource_removeFile(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GResource* cobj = (GResource *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GResource_removeFile : Invalid Native Object");
-    if (argc == 1) {
-        std::string arg0;
-        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_removeFile : Error processing arguments");
-        bool ret = cobj->removeFile(arg0);
-        jsval jsret = JSVAL_NULL;
-        jsret = BOOLEAN_TO_JSVAL(ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GResource_removeFile : wrong number of arguments: %d, was expecting %d", argc, 1);
-    return false;
-}
 bool js_libguang_GResource_getResUrl(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -911,28 +817,6 @@ bool js_libguang_GResource_getCodeUrl(JSContext *cx, uint32_t argc, jsval *vp)
     JS_ReportError(cx, "js_libguang_GResource_getCodeUrl : wrong number of arguments: %d, was expecting %d", argc, 0);
     return false;
 }
-bool js_libguang_GResource_baseDir(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GResource* cobj = (GResource *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GResource_baseDir : Invalid Native Object");
-    if (argc == 1) {
-        std::string arg0;
-        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_baseDir : Error processing arguments");
-        std::string ret = cobj->baseDir(arg0);
-        jsval jsret = JSVAL_NULL;
-        jsret = std_string_to_jsval(cx, ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GResource_baseDir : wrong number of arguments: %d, was expecting %d", argc, 1);
-    return false;
-}
 bool js_libguang_GResource_createDirForUrlFile(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -957,28 +841,6 @@ bool js_libguang_GResource_createDirForUrlFile(JSContext *cx, uint32_t argc, jsv
     JS_ReportError(cx, "js_libguang_GResource_createDirForUrlFile : wrong number of arguments: %d, was expecting %d", argc, 2);
     return false;
 }
-bool js_libguang_GResource_baseFileName(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GResource* cobj = (GResource *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GResource_baseFileName : Invalid Native Object");
-    if (argc == 1) {
-        std::string arg0;
-        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_baseFileName : Error processing arguments");
-        std::string ret = cobj->baseFileName(arg0);
-        jsval jsret = JSVAL_NULL;
-        jsret = std_string_to_jsval(cx, ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GResource_baseFileName : wrong number of arguments: %d, was expecting %d", argc, 1);
-    return false;
-}
 bool js_libguang_GResource_getWriteCodePath(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -995,28 +857,6 @@ bool js_libguang_GResource_getWriteCodePath(JSContext *cx, uint32_t argc, jsval 
     }
 
     JS_ReportError(cx, "js_libguang_GResource_getWriteCodePath : wrong number of arguments: %d, was expecting %d", argc, 0);
-    return false;
-}
-bool js_libguang_GResource_isFile(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GResource* cobj = (GResource *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GResource_isFile : Invalid Native Object");
-    if (argc == 1) {
-        std::string arg0;
-        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_isFile : Error processing arguments");
-        bool ret = cobj->isFile(arg0);
-        jsval jsret = JSVAL_NULL;
-        jsret = BOOLEAN_TO_JSVAL(ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GResource_isFile : wrong number of arguments: %d, was expecting %d", argc, 1);
     return false;
 }
 bool js_libguang_GResource_getTempPath(JSContext *cx, uint32_t argc, jsval *vp)
@@ -1037,26 +877,64 @@ bool js_libguang_GResource_getTempPath(JSContext *cx, uint32_t argc, jsval *vp)
     JS_ReportError(cx, "js_libguang_GResource_getTempPath : wrong number of arguments: %d, was expecting %d", argc, 0);
     return false;
 }
-bool js_libguang_GResource_write_file(JSContext *cx, uint32_t argc, jsval *vp)
+bool js_libguang_GResource_copyFile(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
     bool ok = true;
-    if (argc == 3) {
+    if (argc == 2) {
         std::string arg0;
-        const unsigned char* arg1 = nullptr;
-        unsigned int arg2 = 0;
+        std::string arg1;
         ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-        #pragma warning NO CONVERSION TO NATIVE FOR unsigned char*
-		ok = false;
-        ok &= jsval_to_uint32(cx, args.get(2), &arg2);
-        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_write_file : Error processing arguments");
-        bool ret = GResource::write_file(arg0, arg1, arg2);
+        ok &= jsval_to_std_string(cx, args.get(1), &arg1);
+        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_copyFile : Error processing arguments");
+        bool ret = GResource::copyFile(arg0, arg1);
         jsval jsret = JSVAL_NULL;
         jsret = BOOLEAN_TO_JSVAL(ret);
         args.rval().set(jsret);
         return true;
     }
-    JS_ReportError(cx, "js_libguang_GResource_write_file : wrong number of arguments");
+    JS_ReportError(cx, "js_libguang_GResource_copyFile : wrong number of arguments");
+    return false;
+}
+
+bool js_libguang_GResource_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    if (argc == 0) {
+        GResource* ret = GResource::getInstance();
+        jsval jsret = JSVAL_NULL;
+        do {
+        if (ret) {
+            js_proxy_t *jsProxy = js_get_or_create_proxy<GResource>(cx, (GResource*)ret);
+            jsret = OBJECT_TO_JSVAL(jsProxy->obj);
+        } else {
+            jsret = JSVAL_NULL;
+        }
+    } while (0);
+        args.rval().set(jsret);
+        return true;
+    }
+    JS_ReportError(cx, "js_libguang_GResource_getInstance : wrong number of arguments");
+    return false;
+}
+
+bool js_libguang_GResource_decryption(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 2) {
+        const char* arg0 = nullptr;
+        int arg1 = 0;
+        std::string arg0_tmp; ok &= jsval_to_std_string(cx, args.get(0), &arg0_tmp); arg0 = arg0_tmp.c_str();
+        ok &= jsval_to_int32(cx, args.get(1), (int32_t *)&arg1);
+        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_decryption : Error processing arguments");
+        bool ret = GResource::decryption(arg0, arg1);
+        jsval jsret = JSVAL_NULL;
+        jsret = BOOLEAN_TO_JSVAL(ret);
+        args.rval().set(jsret);
+        return true;
+    }
+    JS_ReportError(cx, "js_libguang_GResource_decryption : wrong number of arguments");
     return false;
 }
 
@@ -1083,89 +961,95 @@ bool js_libguang_GResource_append_file(JSContext *cx, uint32_t argc, jsval *vp)
     return false;
 }
 
-bool js_libguang_GResource_read_file(JSContext *cx, uint32_t argc, jsval *vp)
+bool js_libguang_GResource_baseDir(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
     bool ok = true;
     if (argc == 1) {
         std::string arg0;
         ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_read_file : Error processing arguments");
-        cocos2d::Data ret = GResource::read_file(arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_baseDir : Error processing arguments");
+        std::string ret = GResource::baseDir(arg0);
         jsval jsret = JSVAL_NULL;
-        do {
-        if (ret) {
-            js_proxy_t *jsProxy = js_get_or_create_proxy<cocos2d::Data>(cx, (cocos2d::Data)ret);
-            jsret = OBJECT_TO_JSVAL(jsProxy->obj);
-        } else {
-            jsret = JSVAL_NULL;
-        }
-    } while (0);
+        jsret = std_string_to_jsval(cx, ret);
         args.rval().set(jsret);
         return true;
     }
-    if (argc == 2) {
-        std::string arg0;
-        unsigned int arg1 = 0;
-        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-        ok &= jsval_to_uint32(cx, args.get(1), &arg1);
-        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_read_file : Error processing arguments");
-        cocos2d::Data ret = GResource::read_file(arg0, arg1);
-        jsval jsret = JSVAL_NULL;
-        do {
-        if (ret) {
-            js_proxy_t *jsProxy = js_get_or_create_proxy<cocos2d::Data>(cx, (cocos2d::Data)ret);
-            jsret = OBJECT_TO_JSVAL(jsProxy->obj);
-        } else {
-            jsret = JSVAL_NULL;
-        }
-    } while (0);
-        args.rval().set(jsret);
-        return true;
-    }
-    if (argc == 3) {
-        std::string arg0;
-        unsigned int arg1 = 0;
-        unsigned int arg2 = 0;
-        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-        ok &= jsval_to_uint32(cx, args.get(1), &arg1);
-        ok &= jsval_to_uint32(cx, args.get(2), &arg2);
-        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_read_file : Error processing arguments");
-        cocos2d::Data ret = GResource::read_file(arg0, arg1, arg2);
-        jsval jsret = JSVAL_NULL;
-        do {
-        if (ret) {
-            js_proxy_t *jsProxy = js_get_or_create_proxy<cocos2d::Data>(cx, (cocos2d::Data)ret);
-            jsret = OBJECT_TO_JSVAL(jsProxy->obj);
-        } else {
-            jsret = JSVAL_NULL;
-        }
-    } while (0);
-        args.rval().set(jsret);
-        return true;
-    }
-    JS_ReportError(cx, "js_libguang_GResource_read_file : wrong number of arguments");
+    JS_ReportError(cx, "js_libguang_GResource_baseDir : wrong number of arguments");
     return false;
 }
 
-bool js_libguang_GResource_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
+bool js_libguang_GResource_decompress(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    if (argc == 0) {
-        GResource* ret = GResource::getInstance();
+    bool ok = true;
+    if (argc == 2) {
+        std::string arg0;
+        bool arg1;
+        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
+        arg1 = JS::ToBoolean(args.get(1));
+        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_decompress : Error processing arguments");
+        bool ret = GResource::decompress(arg0, arg1);
         jsval jsret = JSVAL_NULL;
-        do {
-        if (ret) {
-            js_proxy_t *jsProxy = js_get_or_create_proxy<GResource>(cx, (GResource*)ret);
-            jsret = OBJECT_TO_JSVAL(jsProxy->obj);
-        } else {
-            jsret = JSVAL_NULL;
-        }
-    } while (0);
+        jsret = BOOLEAN_TO_JSVAL(ret);
         args.rval().set(jsret);
         return true;
     }
-    JS_ReportError(cx, "js_libguang_GResource_getInstance : wrong number of arguments");
+    JS_ReportError(cx, "js_libguang_GResource_decompress : wrong number of arguments");
+    return false;
+}
+
+bool js_libguang_GResource_removeFile(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 1) {
+        std::string arg0;
+        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_removeFile : Error processing arguments");
+        bool ret = GResource::removeFile(arg0);
+        jsval jsret = JSVAL_NULL;
+        jsret = BOOLEAN_TO_JSVAL(ret);
+        args.rval().set(jsret);
+        return true;
+    }
+    JS_ReportError(cx, "js_libguang_GResource_removeFile : wrong number of arguments");
+    return false;
+}
+
+bool js_libguang_GResource_baseFileName(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 1) {
+        std::string arg0;
+        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_baseFileName : Error processing arguments");
+        std::string ret = GResource::baseFileName(arg0);
+        jsval jsret = JSVAL_NULL;
+        jsret = std_string_to_jsval(cx, ret);
+        args.rval().set(jsret);
+        return true;
+    }
+    JS_ReportError(cx, "js_libguang_GResource_baseFileName : wrong number of arguments");
+    return false;
+}
+
+bool js_libguang_GResource_isFile(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    bool ok = true;
+    if (argc == 1) {
+        std::string arg0;
+        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
+        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GResource_isFile : Error processing arguments");
+        bool ret = GResource::isFile(arg0);
+        jsval jsret = JSVAL_NULL;
+        jsret = BOOLEAN_TO_JSVAL(ret);
+        args.rval().set(jsret);
+        return true;
+    }
+    JS_ReportError(cx, "js_libguang_GResource_isFile : wrong number of arguments");
     return false;
 }
 
@@ -1192,29 +1076,27 @@ void js_register_libguang_GResource(JSContext *cx, JS::HandleObject global) {
     };
 
     static JSFunctionSpec funcs[] = {
-        JS_FN("copyFile", js_libguang_GResource_copyFile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getCachePath", js_libguang_GResource_getCachePath, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("decryption", js_libguang_GResource_decryption, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getWritePath", js_libguang_GResource_getWritePath, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getWriteResPath", js_libguang_GResource_getWriteResPath, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("decompress", js_libguang_GResource_decompress, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("removeFile", js_libguang_GResource_removeFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getResUrl", js_libguang_GResource_getResUrl, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getCodeUrl", js_libguang_GResource_getCodeUrl, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("baseDir", js_libguang_GResource_baseDir, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("createDirForUrlFile", js_libguang_GResource_createDirForUrlFile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("baseFileName", js_libguang_GResource_baseFileName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getWriteCodePath", js_libguang_GResource_getWriteCodePath, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("isFile", js_libguang_GResource_isFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getTempPath", js_libguang_GResource_getTempPath, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
     };
 
     static JSFunctionSpec st_funcs[] = {
-        JS_FN("write_file", js_libguang_GResource_write_file, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("append_file", js_libguang_GResource_append_file, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("read_file", js_libguang_GResource_read_file, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("copyFile", js_libguang_GResource_copyFile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("getInstance", js_libguang_GResource_getInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("decryption", js_libguang_GResource_decryption, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("append_file", js_libguang_GResource_append_file, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("baseDir", js_libguang_GResource_baseDir, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("decompress", js_libguang_GResource_decompress, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("removeFile", js_libguang_GResource_removeFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("baseFileName", js_libguang_GResource_baseFileName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("isFile", js_libguang_GResource_isFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
     };
 
@@ -1222,7 +1104,7 @@ void js_register_libguang_GResource(JSContext *cx, JS::HandleObject global) {
         cx, global,
         JS::NullPtr(), // parent proto
         jsb_GResource_class,
-        dummy_constructor<GResource>, 0, // no constructor
+        empty_constructor, 0,
         properties,
         funcs,
         NULL, // no static properties
@@ -1406,7 +1288,7 @@ void js_register_libguang_GLogger(JSContext *cx, JS::HandleObject global) {
         cx, global,
         JS::NullPtr(), // parent proto
         jsb_GLogger_class,
-        dummy_constructor<GLogger>, 0, // no constructor
+        empty_constructor, 0,
         properties,
         funcs,
         NULL, // no static properties
@@ -1983,7 +1865,7 @@ void js_register_libguang_GDeviceInfo(JSContext *cx, JS::HandleObject global) {
         cx, global,
         JS::NullPtr(), // parent proto
         jsb_GDeviceInfo_class,
-        dummy_constructor<GDeviceInfo>, 0, // no constructor
+        empty_constructor, 0,
         properties,
         funcs,
         NULL, // no static properties
@@ -2007,367 +1889,15 @@ void js_register_libguang_GDeviceInfo(JSContext *cx, JS::HandleObject global) {
     }
 }
 
-JSClass  *jsb_GDeviceInfoAndroid_class;
-JSObject *jsb_GDeviceInfoAndroid_prototype;
-
-bool js_libguang_GDeviceInfoAndroid_memory_used(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GDeviceInfoAndroid* cobj = (GDeviceInfoAndroid *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GDeviceInfoAndroid_memory_used : Invalid Native Object");
-    if (argc == 0) {
-        unsigned int ret = cobj->memory_used();
-        jsval jsret = JSVAL_NULL;
-        jsret = uint32_to_jsval(cx, ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GDeviceInfoAndroid_memory_used : wrong number of arguments: %d, was expecting %d", argc, 0);
-    return false;
-}
-bool js_libguang_GDeviceInfoAndroid_cpu_usage(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GDeviceInfoAndroid* cobj = (GDeviceInfoAndroid *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GDeviceInfoAndroid_cpu_usage : Invalid Native Object");
-    if (argc == 0) {
-        double ret = cobj->cpu_usage();
-        jsval jsret = JSVAL_NULL;
-        jsret = DOUBLE_TO_JSVAL(ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GDeviceInfoAndroid_cpu_usage : wrong number of arguments: %d, was expecting %d", argc, 0);
-    return false;
-}
-bool js_libguang_GDeviceInfoAndroid_memory_free(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GDeviceInfoAndroid* cobj = (GDeviceInfoAndroid *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GDeviceInfoAndroid_memory_free : Invalid Native Object");
-    if (argc == 0) {
-        unsigned int ret = cobj->memory_free();
-        jsval jsret = JSVAL_NULL;
-        jsret = uint32_to_jsval(cx, ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GDeviceInfoAndroid_memory_free : wrong number of arguments: %d, was expecting %d", argc, 0);
-    return false;
-}
-bool js_libguang_GDeviceInfoAndroid_keyboard_close(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GDeviceInfoAndroid* cobj = (GDeviceInfoAndroid *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GDeviceInfoAndroid_keyboard_close : Invalid Native Object");
-    if (argc == 0) {
-        cobj->keyboard_close();
-        args.rval().setUndefined();
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GDeviceInfoAndroid_keyboard_close : wrong number of arguments: %d, was expecting %d", argc, 0);
-    return false;
-}
-bool js_libguang_GDeviceInfoAndroid_browser_useragent(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GDeviceInfoAndroid* cobj = (GDeviceInfoAndroid *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GDeviceInfoAndroid_browser_useragent : Invalid Native Object");
-    if (argc == 0) {
-        std::string ret = cobj->browser_useragent();
-        jsval jsret = JSVAL_NULL;
-        jsret = std_string_to_jsval(cx, ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GDeviceInfoAndroid_browser_useragent : wrong number of arguments: %d, was expecting %d", argc, 0);
-    return false;
-}
-bool js_libguang_GDeviceInfoAndroid_isSDEnable(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GDeviceInfoAndroid* cobj = (GDeviceInfoAndroid *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GDeviceInfoAndroid_isSDEnable : Invalid Native Object");
-    if (argc == 0) {
-        bool ret = cobj->isSDEnable();
-        jsval jsret = JSVAL_NULL;
-        jsret = BOOLEAN_TO_JSVAL(ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GDeviceInfoAndroid_isSDEnable : wrong number of arguments: %d, was expecting %d", argc, 0);
-    return false;
-}
-bool js_libguang_GDeviceInfoAndroid_vibrate(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GDeviceInfoAndroid* cobj = (GDeviceInfoAndroid *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GDeviceInfoAndroid_vibrate : Invalid Native Object");
-    if (argc == 0) {
-        cobj->vibrate();
-        args.rval().setUndefined();
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GDeviceInfoAndroid_vibrate : wrong number of arguments: %d, was expecting %d", argc, 0);
-    return false;
-}
-bool js_libguang_GDeviceInfoAndroid_getSDPath(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GDeviceInfoAndroid* cobj = (GDeviceInfoAndroid *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GDeviceInfoAndroid_getSDPath : Invalid Native Object");
-    if (argc == 0) {
-        std::string ret = cobj->getSDPath();
-        jsval jsret = JSVAL_NULL;
-        jsret = std_string_to_jsval(cx, ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GDeviceInfoAndroid_getSDPath : wrong number of arguments: %d, was expecting %d", argc, 0);
-    return false;
-}
-bool js_libguang_GDeviceInfoAndroid_device_telecom(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GDeviceInfoAndroid* cobj = (GDeviceInfoAndroid *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GDeviceInfoAndroid_device_telecom : Invalid Native Object");
-    if (argc == 0) {
-        std::string ret = cobj->device_telecom();
-        jsval jsret = JSVAL_NULL;
-        jsret = std_string_to_jsval(cx, ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GDeviceInfoAndroid_device_telecom : wrong number of arguments: %d, was expecting %d", argc, 0);
-    return false;
-}
-bool js_libguang_GDeviceInfoAndroid_device_network(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GDeviceInfoAndroid* cobj = (GDeviceInfoAndroid *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GDeviceInfoAndroid_device_network : Invalid Native Object");
-    if (argc == 0) {
-        std::string ret = cobj->device_network();
-        jsval jsret = JSVAL_NULL;
-        jsret = std_string_to_jsval(cx, ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GDeviceInfoAndroid_device_network : wrong number of arguments: %d, was expecting %d", argc, 0);
-    return false;
-}
-bool js_libguang_GDeviceInfoAndroid_keep_awake(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GDeviceInfoAndroid* cobj = (GDeviceInfoAndroid *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GDeviceInfoAndroid_keep_awake : Invalid Native Object");
-    if (argc == 1) {
-        bool arg0;
-        arg0 = JS::ToBoolean(args.get(0));
-        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GDeviceInfoAndroid_keep_awake : Error processing arguments");
-        cobj->keep_awake(arg0);
-        args.rval().setUndefined();
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GDeviceInfoAndroid_keep_awake : wrong number of arguments: %d, was expecting %d", argc, 1);
-    return false;
-}
-bool js_libguang_GDeviceInfoAndroid_open_browser(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    bool ok = true;
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GDeviceInfoAndroid* cobj = (GDeviceInfoAndroid *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GDeviceInfoAndroid_open_browser : Invalid Native Object");
-    if (argc == 1) {
-        std::string arg0;
-        ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-        JSB_PRECONDITION2(ok, cx, false, "js_libguang_GDeviceInfoAndroid_open_browser : Error processing arguments");
-        cobj->open_browser(arg0);
-        args.rval().setUndefined();
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GDeviceInfoAndroid_open_browser : wrong number of arguments: %d, was expecting %d", argc, 1);
-    return false;
-}
-bool js_libguang_GDeviceInfoAndroid_device_hardware(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GDeviceInfoAndroid* cobj = (GDeviceInfoAndroid *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GDeviceInfoAndroid_device_hardware : Invalid Native Object");
-    if (argc == 0) {
-        std::string ret = cobj->device_hardware();
-        jsval jsret = JSVAL_NULL;
-        jsret = std_string_to_jsval(cx, ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GDeviceInfoAndroid_device_hardware : wrong number of arguments: %d, was expecting %d", argc, 0);
-    return false;
-}
-bool js_libguang_GDeviceInfoAndroid_keyboard_exist(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    JS::RootedObject obj(cx, args.thisv().toObjectOrNull());
-    js_proxy_t *proxy = jsb_get_js_proxy(obj);
-    GDeviceInfoAndroid* cobj = (GDeviceInfoAndroid *)(proxy ? proxy->ptr : NULL);
-    JSB_PRECONDITION2( cobj, cx, false, "js_libguang_GDeviceInfoAndroid_keyboard_exist : Invalid Native Object");
-    if (argc == 0) {
-        bool ret = cobj->keyboard_exist();
-        jsval jsret = JSVAL_NULL;
-        jsret = BOOLEAN_TO_JSVAL(ret);
-        args.rval().set(jsret);
-        return true;
-    }
-
-    JS_ReportError(cx, "js_libguang_GDeviceInfoAndroid_keyboard_exist : wrong number of arguments: %d, was expecting %d", argc, 0);
-    return false;
-}
-bool js_libguang_GDeviceInfoAndroid_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    if (argc == 0) {
-        GDeviceInfoAndroid* ret = GDeviceInfoAndroid::getInstance();
-        jsval jsret = JSVAL_NULL;
-        do {
-        if (ret) {
-            js_proxy_t *jsProxy = js_get_or_create_proxy<GDeviceInfoAndroid>(cx, (GDeviceInfoAndroid*)ret);
-            jsret = OBJECT_TO_JSVAL(jsProxy->obj);
-        } else {
-            jsret = JSVAL_NULL;
-        }
-    } while (0);
-        args.rval().set(jsret);
-        return true;
-    }
-    JS_ReportError(cx, "js_libguang_GDeviceInfoAndroid_getInstance : wrong number of arguments");
-    return false;
-}
-
-
-extern JSObject *jsb_GDeviceInfo_prototype;
-
-void js_GDeviceInfoAndroid_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (GDeviceInfoAndroid)", obj);
-}
-void js_register_libguang_GDeviceInfoAndroid(JSContext *cx, JS::HandleObject global) {
-    jsb_GDeviceInfoAndroid_class = (JSClass *)calloc(1, sizeof(JSClass));
-    jsb_GDeviceInfoAndroid_class->name = "GDeviceInfoAndroid";
-    jsb_GDeviceInfoAndroid_class->addProperty = JS_PropertyStub;
-    jsb_GDeviceInfoAndroid_class->delProperty = JS_DeletePropertyStub;
-    jsb_GDeviceInfoAndroid_class->getProperty = JS_PropertyStub;
-    jsb_GDeviceInfoAndroid_class->setProperty = JS_StrictPropertyStub;
-    jsb_GDeviceInfoAndroid_class->enumerate = JS_EnumerateStub;
-    jsb_GDeviceInfoAndroid_class->resolve = JS_ResolveStub;
-    jsb_GDeviceInfoAndroid_class->convert = JS_ConvertStub;
-    jsb_GDeviceInfoAndroid_class->finalize = js_GDeviceInfoAndroid_finalize;
-    jsb_GDeviceInfoAndroid_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
-
-    static JSPropertySpec properties[] = {
-        JS_PSG("__nativeObj", js_is_native_obj, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_PS_END
-    };
-
-    static JSFunctionSpec funcs[] = {
-        JS_FN("memory_used", js_libguang_GDeviceInfoAndroid_memory_used, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("cpu_usage", js_libguang_GDeviceInfoAndroid_cpu_usage, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("memory_free", js_libguang_GDeviceInfoAndroid_memory_free, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("keyboard_close", js_libguang_GDeviceInfoAndroid_keyboard_close, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("browser_useragent", js_libguang_GDeviceInfoAndroid_browser_useragent, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("isSDEnable", js_libguang_GDeviceInfoAndroid_isSDEnable, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("vibrate", js_libguang_GDeviceInfoAndroid_vibrate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("getSDPath", js_libguang_GDeviceInfoAndroid_getSDPath, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("device_telecom", js_libguang_GDeviceInfoAndroid_device_telecom, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("device_network", js_libguang_GDeviceInfoAndroid_device_network, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("keep_awake", js_libguang_GDeviceInfoAndroid_keep_awake, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("open_browser", js_libguang_GDeviceInfoAndroid_open_browser, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("device_hardware", js_libguang_GDeviceInfoAndroid_device_hardware, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FN("keyboard_exist", js_libguang_GDeviceInfoAndroid_keyboard_exist, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FS_END
-    };
-
-    static JSFunctionSpec st_funcs[] = {
-        JS_FN("getInstance", js_libguang_GDeviceInfoAndroid_getInstance, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-        JS_FS_END
-    };
-
-    jsb_GDeviceInfoAndroid_prototype = JS_InitClass(
-        cx, global,
-        JS::RootedObject(cx, jsb_GDeviceInfo_prototype),
-        jsb_GDeviceInfoAndroid_class,
-        dummy_constructor<GDeviceInfoAndroid>, 0, // no constructor
-        properties,
-        funcs,
-        NULL, // no static properties
-        st_funcs);
-    // make the class enumerable in the registered namespace
-//  bool found;
-//FIXME: Removed in Firefox v27 
-//  JS_SetPropertyAttributes(cx, global, "GDeviceInfoAndroid", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
-
-    // add the proto and JSClass to the type->js info hash table
-    TypeTest<GDeviceInfoAndroid> t;
-    js_type_class_t *p;
-    std::string typeName = t.s_name();
-    if (_js_global_type_map.find(typeName) == _js_global_type_map.end())
-    {
-        p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
-        p->jsclass = jsb_GDeviceInfoAndroid_class;
-        p->proto = jsb_GDeviceInfoAndroid_prototype;
-        p->parentProto = jsb_GDeviceInfo_prototype;
-        _js_global_type_map.insert(std::make_pair(typeName, p));
-    }
-}
-
 void register_all_libguang(JSContext* cx, JS::HandleObject obj) {
     // Get the global ns
     JS::RootedObject ns(cx, ScriptingCore::getInstance()->getGlobalObject());
 
-    js_register_libguang_GDeviceInfo(cx, ns);
-    js_register_libguang_GDeviceInfoAndroid(cx, ns);
     js_register_libguang_GGameControl(cx, ns);
     js_register_libguang_GResource(cx, ns);
     js_register_libguang_GLogger(cx, ns);
     js_register_libguang_GUTF8(cx, ns);
+    js_register_libguang_GDeviceInfo(cx, ns);
     js_register_libguang_GHtttpService(cx, ns);
     js_register_libguang_GStartLoadScene(cx, ns);
     js_register_libguang_GDebugLoadScene(cx, ns);

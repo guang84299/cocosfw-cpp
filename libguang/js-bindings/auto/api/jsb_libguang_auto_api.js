@@ -241,20 +241,6 @@ getInstance : function (
 GResource = {
 
 /**
- * @method copyFile
- * @param {String} arg0
- * @param {String} arg1
- * @return {bool}
- */
-copyFile : function (
-str, 
-str 
-)
-{
-    return false;
-},
-
-/**
  * @method getCachePath
  * @return {String}
  */
@@ -262,20 +248,6 @@ getCachePath : function (
 )
 {
     return ;
-},
-
-/**
- * @method decryption
- * @param {char} arg0
- * @param {int} arg1
- * @return {bool}
- */
-decryption : function (
-char, 
-int 
-)
-{
-    return false;
 },
 
 /**
@@ -293,6 +265,126 @@ getWritePath : function (
  * @return {String}
  */
 getWriteResPath : function (
+)
+{
+    return ;
+},
+
+/**
+ * @method getResUrl
+ * @return {String}
+ */
+getResUrl : function (
+)
+{
+    return ;
+},
+
+/**
+ * @method getCodeUrl
+ * @return {String}
+ */
+getCodeUrl : function (
+)
+{
+    return ;
+},
+
+/**
+ * @method createDirForUrlFile
+ * @param {String} arg0
+ * @param {bool} arg1
+ * @return {bool}
+ */
+createDirForUrlFile : function (
+str, 
+bool 
+)
+{
+    return false;
+},
+
+/**
+ * @method getWriteCodePath
+ * @return {String}
+ */
+getWriteCodePath : function (
+)
+{
+    return ;
+},
+
+/**
+ * @method getTempPath
+ * @return {String}
+ */
+getTempPath : function (
+)
+{
+    return ;
+},
+
+/**
+ * @method copyFile
+ * @param {String} arg0
+ * @param {String} arg1
+ * @return {bool}
+ */
+copyFile : function (
+str, 
+str 
+)
+{
+    return false;
+},
+
+/**
+ * @method getInstance
+ * @return {GResource}
+ */
+getInstance : function (
+)
+{
+    return GResource;
+},
+
+/**
+ * @method decryption
+ * @param {char} arg0
+ * @param {int} arg1
+ * @return {bool}
+ */
+decryption : function (
+char, 
+int 
+)
+{
+    return false;
+},
+
+/**
+ * @method append_file
+ * @param {String} arg0
+ * @param {unsigned char} arg1
+ * @param {unsigned int} arg2
+ * @return {bool}
+ */
+append_file : function (
+str, 
+char, 
+int 
+)
+{
+    return false;
+},
+
+/**
+ * @method baseDir
+ * @param {String} arg0
+ * @return {String}
+ */
+baseDir : function (
+str 
 )
 {
     return ;
@@ -325,68 +417,12 @@ str
 },
 
 /**
- * @method getResUrl
- * @return {String}
- */
-getResUrl : function (
-)
-{
-    return ;
-},
-
-/**
- * @method getCodeUrl
- * @return {String}
- */
-getCodeUrl : function (
-)
-{
-    return ;
-},
-
-/**
- * @method baseDir
- * @param {String} arg0
- * @return {String}
- */
-baseDir : function (
-str 
-)
-{
-    return ;
-},
-
-/**
- * @method createDirForUrlFile
- * @param {String} arg0
- * @param {bool} arg1
- * @return {bool}
- */
-createDirForUrlFile : function (
-str, 
-bool 
-)
-{
-    return false;
-},
-
-/**
  * @method baseFileName
  * @param {String} arg0
  * @return {String}
  */
 baseFileName : function (
 str 
-)
-{
-    return ;
-},
-
-/**
- * @method getWriteCodePath
- * @return {String}
- */
-getWriteCodePath : function (
 )
 {
     return ;
@@ -402,74 +438,6 @@ str
 )
 {
     return false;
-},
-
-/**
- * @method getTempPath
- * @return {String}
- */
-getTempPath : function (
-)
-{
-    return ;
-},
-
-/**
- * @method write_file
- * @param {String} arg0
- * @param {unsigned char} arg1
- * @param {unsigned int} arg2
- * @return {bool}
- */
-write_file : function (
-str, 
-char, 
-int 
-)
-{
-    return false;
-},
-
-/**
- * @method append_file
- * @param {String} arg0
- * @param {unsigned char} arg1
- * @param {unsigned int} arg2
- * @return {bool}
- */
-append_file : function (
-str, 
-char, 
-int 
-)
-{
-    return false;
-},
-
-/**
- * @method read_file
- * @param {String} arg0
- * @param {unsigned int} arg1
- * @param {unsigned int} arg2
- * @return {cc.Data}
- */
-read_file : function (
-str, 
-int, 
-int 
-)
-{
-    return cc.Data;
-},
-
-/**
- * @method getInstance
- * @return {GResource}
- */
-getInstance : function (
-)
-{
-    return GResource;
 },
 
 };
@@ -787,159 +755,6 @@ getInstance : function (
 )
 {
     return GDeviceInfo;
-},
-
-};
-
-/**
- * @class GDeviceInfoAndroid
- */
-GDeviceInfoAndroid = {
-
-/**
- * @method memory_used
- * @return {unsigned int}
- */
-memory_used : function (
-)
-{
-    return 0;
-},
-
-/**
- * @method cpu_usage
- * @return {float}
- */
-cpu_usage : function (
-)
-{
-    return 0;
-},
-
-/**
- * @method memory_free
- * @return {unsigned int}
- */
-memory_free : function (
-)
-{
-    return 0;
-},
-
-/**
- * @method keyboard_close
- */
-keyboard_close : function (
-)
-{
-},
-
-/**
- * @method browser_useragent
- * @return {String}
- */
-browser_useragent : function (
-)
-{
-    return ;
-},
-
-/**
- * @method isSDEnable
- * @return {bool}
- */
-isSDEnable : function (
-)
-{
-    return false;
-},
-
-/**
- * @method vibrate
- */
-vibrate : function (
-)
-{
-},
-
-/**
- * @method getSDPath
- * @return {String}
- */
-getSDPath : function (
-)
-{
-    return ;
-},
-
-/**
- * @method device_telecom
- * @return {String}
- */
-device_telecom : function (
-)
-{
-    return ;
-},
-
-/**
- * @method device_network
- * @return {String}
- */
-device_network : function (
-)
-{
-    return ;
-},
-
-/**
- * @method keep_awake
- * @param {bool} arg0
- */
-keep_awake : function (
-bool 
-)
-{
-},
-
-/**
- * @method open_browser
- * @param {String} arg0
- */
-open_browser : function (
-str 
-)
-{
-},
-
-/**
- * @method device_hardware
- * @return {String}
- */
-device_hardware : function (
-)
-{
-    return ;
-},
-
-/**
- * @method keyboard_exist
- * @return {bool}
- */
-keyboard_exist : function (
-)
-{
-    return false;
-},
-
-/**
- * @method getInstance
- * @return {GDeviceInfoAndroid}
- */
-getInstance : function (
-)
-{
-    return GDeviceInfoAndroid;
 },
 
 };
